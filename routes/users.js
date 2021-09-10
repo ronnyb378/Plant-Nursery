@@ -81,9 +81,14 @@ if (!success) {
 // login
 req.session.user = user
 
+// extract password from user, assign all other ot a new userData variable
+// this is a New Structuring Assignment
+const { password, ...userData } = user.dataValues;
+
 // respond with success/error
 res.json({
-  success: 'Successfully logged in'
+  success: 'Successfully logged in',
+  user: userData
 })
 })
 

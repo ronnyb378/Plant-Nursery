@@ -31,23 +31,20 @@ export default function SignUp() {
 
     return (
         <div>
-            <Container>
-                <Row xs={1} md={2} className="justify-content-center">
+            <Container className="pt-4">
+                <Row className="align-items-center" xs={1} md={2}>
                     <Col>
                         {error && (<div className="error">{error}</div>)}
-                        <h2>Sign up</h2>
+                        <h2 className="signup-heading">Create<br /> Account</h2><p className="greySmall">Already have an account? Login <Link to="/">here</Link>.</p>
                         <Form onSubmit={handleSubmit}>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label>Username or Email</Form.Label>
                                 <Form.Control type="text" value={username} onChange={e => setUsername(e.target.value)} />
-                                <Form.Text className="text-muted">
-                                    We'll never share your email with anyone else.
-                                </Form.Text>
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicPassword">
                                 <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
+                                <Form.Control size="lg"type="password" value={password} onChange={e => setPassword(e.target.value)} />
                             </Form.Group>
                             <Button type="submit">
                                 Sign me up!

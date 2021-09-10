@@ -1,25 +1,25 @@
 import React from 'react'
 import { Form, Button, Container, Row, Col } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 export default function SignUp() {
     return (
         <div>
-            <Container>
-                <Row xs={1} md={2} className="justify-content-center">
-                    <Col>
-                    <h2>Sign up</h2>
+            <Container className="pt-4">
+                <Row className="align-items-center" xs={1} md={2}>
+                    <Col >
+                        <h2 className="signup-heading">Create<br /> Account</h2><p>Already have an account? Login <Link to="/">here.</Link></p>
+                    </Col>
+                    <Col >
                         <Form>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label>Username or Email</Form.Label>
-                                <Form.Control type="text"/>
-                                <Form.Text className="text-muted">
-                                    We'll never share your email with anyone else.
-                                </Form.Text>
+                                <Form.Control size="lg"type="text"/>
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicPassword">
                                 <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" placeholder="Password" />
+                                <Form.Control size="lg"type="password" />
                             </Form.Group>
                             <Button type="submit">
                                 Sign me up!

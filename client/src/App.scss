@@ -3,6 +3,7 @@ $blueGreen: #588b8b;
 $peach: #ffd5c2;
 $orange: #f28f3b;
 $burnt: #c8553d;
+$mainFont: 'Roboto Mono', monospace;
 
 html, body {
     width: 100%;
@@ -12,11 +13,11 @@ html, body {
 
 h2 {
     color: $blueGreen;
-    opacity: 5;
-    transition: opacity 3s;
-    font-family: Arial, Helvetica, sans-serif;
+    // opacity: 5;
+    // transition: opacity 3s;
+    font-family: $mainFont;
     font-weight: 900;
-    font-size: 3.0em;
+    font-size: 3.5em;
     text-align: center;
 }
 
@@ -44,8 +45,31 @@ h2 {
 }
 
 .btn-primary {
-    background-color: $burnt;
-    border-color: $burnt !important;
+    background-color: $blueGreen;
+    border-color: $blueGreen !important;
     border: 0;
+    font-size: 1.0em;
+    padding: .75em;
+    width: 100%;
+    margin-top: 1em;
+    font-family: $mainFont;
     
+}
+
+.signup-heading {
+    text-align: left;
+}
+
+.form-label {
+    color: grey;
+    font-family: $mainFont;
+}
+
+.greySmall {
+    color: grey;
+    font-family: $mainFont;
+}
+
+.navbar {
+    background: $blueGreen !important;
 }

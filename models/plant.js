@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Plant.init({
-    userId: DataTypes.INTEGER,
+    UserId: DataTypes.INTEGER,
     name: DataTypes.STRING,
     healthrating: DataTypes.INTEGER,
     species: DataTypes.STRING,

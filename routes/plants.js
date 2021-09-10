@@ -1,31 +1,24 @@
 const express = require('express');
-const db = require('../models');
+
 const router = express.Router();
-// const db = require('../models')
+const db = require('../models')
 
-// Get all Plants
-// Get /api/v1/plants
-router.get('/', async function(req, res, next){
-    // find all plants in db
-    const plants = await db.Plant.findAll({
-        include: [{
-            model: db.User,
-            attributes: ['username']
-        }]
+// GET all Plants
+router.get('/mygarden', async function(req, res, next) {
+    console.log("**************SESSION*****************",req.session.user.id)
+    await db.Plant.findAll({
+        where: {
+            UserId: req.session.user.id
+        }
+    }).then(plant => {
+        if (plant.length < 1) {
+            res.json("No plants b!")
+        } else {
+            res.json(plant)
+        }
+        
+        
     })
-    // send them back
-    res.send(plants)
-});
-
-// POST /api/v1/Plants
-router.post('/', (req, res, next) => {
-
-    // check for all required field
-    if (!req.body || !req.body.name){
-        // if no input for required field, send error
-        res.status(422).json({error: 'must include the name'})
-        return
-    }
 })
 
 

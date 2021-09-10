@@ -8,7 +8,7 @@ export default function SignUp() {
             <Container className="pt-4">
                 <Row className="align-items-center" xs={1} md={2}>
                     <Col >
-                        <h2 className="signup-heading">Create<br /> Account</h2><p>Already have an account? Login <Link to="/">here.</Link></p>
+                        <h2 className="signup-heading">Create<br /> Account</h2><p className="greySmall">Already have an account? Login <Link to="/">here</Link>.</p>
                     </Col>
                     <Col >
                         <Form>

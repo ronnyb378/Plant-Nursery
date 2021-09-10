@@ -9,11 +9,13 @@ import Calendar from './pages/Calendar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 import { Container } from 'react-bootstrap';
+import NavBar from './components/NavBar';
 
 function App() {
   return (
     <div className="App">
       <Router>
+        <NavBar />
         <Container className="pt-4 pb-4">
           <Switch>
             <Route exact path="/">

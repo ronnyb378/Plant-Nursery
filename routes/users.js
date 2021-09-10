@@ -1,9 +1,10 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const db = require('../models')
 const bcrypt = require('bcrypt')
 
-/* GET users listing. */
+/* POST users listing. */
+// POST /api/v1/users
 router.post('/signup', function(req, res, next) {
     // take username, password
   if (!req.body.username || !req.body.password) {
@@ -84,6 +85,13 @@ req.session.user = user
 res.json({
   success: 'Successfully logged in'
 })
+})
+
+router.get('/logout', (req, res) => {
+  //tell express that the user logged out
+  req.session.destroy()
+  // send response to show it successful
+  res.json({ message: 'successfully loged out' })
 })
 
 

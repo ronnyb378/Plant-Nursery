@@ -15,12 +15,12 @@ export default function Login() {
             <form onSubmit={handleSubmit}>
                 <label>
                     <span>Username</span>
-                    <input vlaue={username} onChange={e => setUsername(e.target.value)}/>
+                    <input value={username} onChange={e => setUsername(e.target.value)}/>
                 </label>
                 <br />
                 <label>
                     <span>Password</span>
-                    <input vlaue={password} onChange={e => setPassword(e.target.value)}/>
+                    <input value={password} onChange={e => setPassword(e.target.value)}/>
                 </label>
                 <br />
                 <button type="submit">Login</button>

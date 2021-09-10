@@ -91,7 +91,7 @@ router.get('/logout', (req, res) => {
   //tell express that the user logged out
   req.session.destroy()
   // send response to show it successful
-  res.json({ message: 'successfully loged out' })
+  res.json({ message: 'successfully logged out' })
 })
 
 

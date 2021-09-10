@@ -7,9 +7,11 @@ const db = require('./models')
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const store = new SequelizeStore({db: db.sequelize})
 store.sync()
+const checkAuth = require("./checkAuth")
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const plantsRouter = require('./routes/plants');
 
 const app = express();
 
@@ -33,5 +35,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/api/v1/users', usersRouter);
+app.use('/api/v1/plants', checkAuth, plantsRouter);
 
 module.exports = app;

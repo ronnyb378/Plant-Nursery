@@ -115,16 +115,16 @@ router.get('/login/guest', (req, res) => {
 })
 
 // current user
-router.get('/current', async (req,res)=>{
-  const user = await db.User.findByPk(req.session.user.id)
-  if (!user) {
-    res.status(401).json({
-      error: 'Not logged in'
-    })
-  }
-  const { password, ...userData } = user.dataValues
-  res.json(userData)
-})
+// router.get('/current', async (req,res)=>{
+//   const user = await db.User.findByPk(req.session.user.id)
+//   if (!user) {
+//     res.status(401).json({
+//       error: 'Not logged in'
+//     })
+//   }
+//   const { password, ...userData } = user.dataValues
+//   res.json(userData)
+// })
 
 router.get('/logout', (req, res) => {
   // clear user information from session

@@ -16,12 +16,12 @@ import { actionLoggedIn } from './redux/actions/user';
 
 function App() {
   const dispatch = useDispatch()
-  useEffect(()=>{
+  useEffect(() => {
     fetch('/api/v1/users/current')
-    .then(res=>res.json())
-    .then(data=> {
-      dispatch(actionLoggedIn(data)) 
-    })
+      .then(res => res.json())
+      .then(data => {
+        dispatch(actionLoggedIn(data))
+      })
     // todo: store user info in redux
   }, [dispatch])
 

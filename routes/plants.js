@@ -39,4 +39,9 @@ router.post('/mygarden/:id', async (req, res) => {
     res.json(plant)
 })
 
+// // DELETE a plant
+// router.delete('/mygarden', (req, res) => {
+
+// })
+
 module.exports = router;

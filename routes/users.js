@@ -99,6 +99,19 @@ router.get('/logout', (req, res) => {
   res.json({ message: 'successfully loged out' })
 })
 
+router.get('/login/guest', (req, res) => {
+  const guest = db.User.findOne({
+    where: {
+      username: 'guest'
+    }
+  })
+    .then((user)=>{
+      if (user) {
+        req.session.user = guest
+        res.redirect('/garden')
+      }
+    })
+})
 
 
 module.exports = router;

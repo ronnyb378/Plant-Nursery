@@ -49,7 +49,7 @@ export default function Login() {
                 <button type="submit">Login</button>
             </form>
             <Link to="/signup">Sign Up</Link>
-            <Link to="/garden">Guest</Link>
+            <Link to="/api/v1/login/guest">Guest</Link>
         </div>
     )
 }

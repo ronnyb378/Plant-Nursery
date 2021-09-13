@@ -20,7 +20,7 @@ function App() {
     fetch('/api/v1/users/current')
     .then(res=>res.json())
     .then(data=> {
-      dispatch(actionLoggedIn(data))
+      dispatch(actionLoggedIn(data)) 
     })
     // todo: store user info in redux
   }, [dispatch])

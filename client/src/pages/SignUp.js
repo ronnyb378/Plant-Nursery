@@ -41,7 +41,7 @@ export default function SignUp() {
                         <Form onSubmit={handleSubmit}>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label>Username or Email</Form.Label>
-                                <Form.Control type="text" value={username} onChange={e => setUsername(e.target.value)} />
+                                <Form.Control size="lg" type="text" value={username} onChange={e => setUsername(e.target.value)} />
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicPassword">

@@ -31,7 +31,7 @@ export default function Login() {
                 setError(data.error)
             } else {
                 dispatch(actionLoggedIn(data.user))
-                history.push('/api/v1/plants')
+                history.push('/mygarden')
             }
         })
     }

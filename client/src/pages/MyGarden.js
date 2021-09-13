@@ -1,19 +1,13 @@
 import React, { useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-// import { useSelector } from "react-redux";
 import plant1 from '../images/plant1.jpeg'
 import plant2 from '../images/plant2.jpeg'
 import plant3 from '../images/plant3.jpeg'
 import { actionSetResults } from '../redux/actions/results'
 
 export default function MyGarden() {
-    const dispatch = useDispatch()
-    // const {user, checked} = useSelector(state => state.user);
-
-    // if (!checked) {
-    //     return 'Loading...'
-    // }  
-    
+  
+    const dispatch = useDispatch();
     const results = useSelector((state) => state.results)
 
     useEffect(() => {

@@ -23,8 +23,6 @@ export default function SignUp() {
             .then(data => {
                 if (data.error) {
                     setError(data.error)
-                } else {
-                    // history.push('/login')
                 }
             })
     }

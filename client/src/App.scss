@@ -73,3 +73,17 @@ h2 {
 .navbar {
     background: $blueGreen !important;
 }
+
+// .card-img-top {
+//     border-radius: 50% !important;
+// }
+
+.plantCards {
+    // background-color: black;
+    border-color: transparent;
+    .card-img-top {
+        // border-radius: 50%;
+        border-color: yellow;
+        
+    }
+}

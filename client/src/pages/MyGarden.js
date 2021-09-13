@@ -1,4 +1,5 @@
 import React, { useEffect} from 'react'
+import { Container, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Plant from '../components/Plant'
 import plant1 from '../images/plant1.jpeg'
@@ -34,10 +35,13 @@ export default function MyGarden() {
                     <img className="plant-pic" src={plant3} alt="plant stems"/>
                 </div>
             </div>
-            {results >= 1 ? (results.map((result) => {
-                return <Plant key={result.id} data={result} />
-            })) : <div></div>}
-            {/* <Plant /> */}
+            <Container>
+                <Row sm={2} md={4} lg={6}>
+                {results.length >= 1 ? (results.map((result) => {
+                    return <Plant key={result.id} data={result} />
+                })) : <div></div>}
+                </Row>
+            </Container>
         </div>
     )
 }

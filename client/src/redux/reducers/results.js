@@ -1,4 +1,4 @@
-export function results(state=null, action) {
+export function results(state=[], action) {
     switch (action.type) {
         case 'SET_RESULTS':
             return action.text

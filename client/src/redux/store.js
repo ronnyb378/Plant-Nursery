@@ -1,8 +1,10 @@
 import { combineReducers, createStore } from "redux";
+import { results } from "./reducers/results";
 import { user } from "./reducers/user";
 
 const rootReducer = combineReducers({
-    users: user
+    users: user,
+    results: results
 })
 
 const store = createStore(

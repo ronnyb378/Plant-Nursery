@@ -34,6 +34,7 @@ app.use(
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', checkAuth ,indexRouter);
+
 app.use('/api/v1/users', usersRouter);
 app.use('/api/v1/plants', checkAuth, plantsRouter);
 

@@ -126,4 +126,12 @@ router.get('/current', async (req,res)=>{
   res.json(userData)
 })
 
+router.get('/logout', (req, res) => {
+  // clear user information from session
+  req.session.user = null
+  res.json({
+    success: 'user logged out'
+  })
+})
+
 module.exports = router;

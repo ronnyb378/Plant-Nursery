@@ -1,5 +1,6 @@
 import React, { useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import Plant from '../components/Plant'
 import plant1 from '../images/plant1.jpeg'
 import plant2 from '../images/plant2.jpeg'
 import plant3 from '../images/plant3.jpeg'
@@ -33,9 +34,10 @@ export default function MyGarden() {
                     <img className="plant-pic" src={plant3} alt="plant stems"/>
                 </div>
             </div>
-            {results.map((result) => {
-                return <div key={result.id}>{result.name}</div>
-            })}
+            {results >= 1 ? (results.map((result) => {
+                return <Plant key={result.id} data={result} />
+            })) : <div></div>}
+            {/* <Plant /> */}
         </div>
     )
 }

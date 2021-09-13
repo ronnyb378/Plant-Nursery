@@ -14,7 +14,7 @@ export default function NavBar() {
                             <Nav.Link href="#pricing">Something2</Nav.Link>
                         </Nav>
                         <Nav>
-                            <Nav.Link eventKey={2} href="#memes">
+                            <Nav.Link eventKey={2} href="/login">
                                 Log in
                             </Nav.Link>
                         </Nav>

@@ -10,21 +10,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 import { Container } from 'react-bootstrap';
 import NavBar from './components/NavBar';
-import { useEffect } from 'react';
 
 function App() {
-  useEffect(()=>{
-    fetch('/api/v1/users/current')
-      // todo: store user info in redux
-  }, [])
-
   return (
     <div className="App">
       <Router>
         <NavBar />
         <Container className="pt-4 pb-4">
           <Switch>
-            <Route exact path="/">
+            <Route exact path="/login">
               <Login />
             </Route>
             <Route path="/signup">
@@ -33,7 +27,7 @@ function App() {
             <Route path="/profile/:user">
               <Profile />
             </Route>
-            <Route path="/plants">
+            <Route path="/mygarden">
               <MyGarden />
             </Route>
             <Route path="/:user/:plantId">

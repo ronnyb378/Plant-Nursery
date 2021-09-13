@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router'
 import { actionLoggedIn } from '../redux/actions/user'
 import { Form, Button, Container, Row, Col } from 'react-bootstrap'
 
@@ -9,6 +10,7 @@ export default function Login() {
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
     const dispatch = useDispatch()
+    const history = useHistory()
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -29,6 +31,7 @@ export default function Login() {
                 setError(data.error)
             } else {
                 dispatch(actionLoggedIn(data.user))
+                history.push('/api/v1/plants')
             }
         })
     }

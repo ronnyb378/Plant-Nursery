@@ -11,17 +11,19 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    return queryInterface.bulkInsert('Users', [{
-      username: 'guest',
-      password: 'password',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }, {
-      username: 'testtest',
-      password: 'test1',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }])
+    return queryInterface.bulkInsert('Users', [
+    //   {
+    //   username: 'guest',
+    //   password: 'password',
+    //   createdAt: new Date(),
+    //   updatedAt: new Date()
+    // }, {
+    //   username: 'testtest',
+    //   password: 'test1',
+    //   createdAt: new Date(),
+    //   updatedAt: new Date()
+    // }
+  ])
   },
 
   down: async (queryInterface, Sequelize) => {

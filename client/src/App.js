@@ -27,13 +27,13 @@ function App() {
             <Route path="/profile/:user">
               <Profile />
             </Route>
-            <Route path="/mygarden/:user">
+            <Route path="/plants">
               <MyGarden />
             </Route>
             <Route path="/:user/:plantId">
               <Plant />
             </Route>
-            <Route path="/calendar/:plantId">
+            <Route path="/calendar">
               <Calendar />
             </Route>
           </Switch>

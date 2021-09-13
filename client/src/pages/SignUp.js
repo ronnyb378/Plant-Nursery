@@ -36,10 +36,12 @@ export default function SignUp() {
                     <Col>
                         {error && (<div className="error">{error}</div>)}
                         <h2 className="signup-heading">Create<br /> Account</h2><p className="greySmall">Already have an account? Login <Link to="/">here</Link>.</p>
+                    </Col>
+                    <Col>
                         <Form onSubmit={handleSubmit}>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label>Username or Email</Form.Label>
-                                <Form.Control type="text" value={username} onChange={e => setUsername(e.target.value)} />
+                                <Form.Control size="lg" type="text" value={username} onChange={e => setUsername(e.target.value)} />
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicPassword">

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, Button, Col } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import plant from '../images/placeholderPlant.jpeg'
 
 export default function Plant(props) {
@@ -12,7 +13,8 @@ export default function Plant(props) {
                     <Card.Text>
                         {props.data.location}
                     </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
+                    <Button variant="primary">Edit</Button>
+                    <Button as={Link} to="/:user/:plantId"variant="primary">New Event</Button>
                 </Card.Body>
             </Card>
         </Col>

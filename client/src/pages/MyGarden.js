@@ -1,5 +1,5 @@
-import React, { useEffect} from 'react'
-// import { Container, Row } from 'react-bootstrap'
+import React, { useEffect } from 'react'
+import { Container, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import NewPlant from '../components/NewPlant'
 // import Plant from '../components/Plant'
@@ -9,16 +9,21 @@ import plant3 from '../images/plant3.jpeg'
 import { actionSetResults } from '../redux/actions/results'
 
 export default function MyGarden() {
-    const dispatch = useDispatch();
-    // const results = useSelector((state) => state.results)
 
+    // const [show, setShow] = useState(false);
+
+    // const handleClose = () => setShow(false);
+    // const handleShow = () => setShow(true);
+
+    const dispatch = useDispatch();
+    const results = useSelector((state) => state.results)
     useEffect(() => {
-        fetch('/api/v1/plants/mygarden')
-        .then(res => res.json())
-        .then(data => {
-            dispatch(actionSetResults(data))
-            // console.log(data)
-        })
+        fetch('api/v1/plants/mygarden')
+            .then(res => res.json())
+            .then(data => {
+                dispatch(actionSetResults(data))
+                console.log(data)
+            })
     }, [dispatch])
 
     return (
@@ -32,15 +37,16 @@ export default function MyGarden() {
                     <img className="plant-pic" src={plant2} alt="hanging plants" />
                 </div>
                 <div>
-                    <img className="plant-pic" src={plant3} alt="plant stems"/>
+                    <img className="plant-pic" src={plant3} alt="plant stems" />
                 </div>
             </div>
             {/* <Container>
                 <Row sm={2} md={4} lg={6}>
-                {results.length >= 1 ? (results.map((result) => {
-                    return <Plant key={result.id} data={result} />
-                })) : <div></div>}
+                    {results.length ? results.map((result) => {
+                        return <Plant key={result.id} data={result} />
+                    }) : ('')}
                 </Row>
+
             </Container> */}
             <NewPlant />
         </div>

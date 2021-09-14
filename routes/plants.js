@@ -50,7 +50,7 @@ router.post('/newplant', async (req, res) => {
 // UPDATE a plant
 router.patch('mygarden/:plantId', (req, res) => {
     
-    db.plant.update({
+    db.plant.patch({
         name: req.body.name,
         healthrating: req.body.healthrating,
         species: req.body.species,

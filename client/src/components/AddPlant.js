@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import plus from '../images/plusIcon.png'
 import { Modal, Button, Col, Card } from 'react-bootstrap'
+import NewPlant from './NewPlant';
 
 export default function AddPlant() {
     const [show, setShow] = useState(false);
@@ -25,7 +26,7 @@ export default function AddPlant() {
                         <Modal.Header closeButton>
                             <Modal.Title>New Plant</Modal.Title>
                         </Modal.Header>
-                        <Modal.Body>Plant form here</Modal.Body>
+                        <Modal.Body><NewPlant /></Modal.Body>
                         <Modal.Footer>
                             <Button variant="secondary" onClick={handleClose}>
                                 Close

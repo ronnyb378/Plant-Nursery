@@ -1,8 +1,8 @@
 import React, { useEffect} from 'react'
-import { Container, Row } from 'react-bootstrap'
+// import { Container, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import NewPlant from '../components/NewPlant'
-import Plant from '../components/Plant'
+// import Plant from '../components/Plant'
 import plant1 from '../images/plant1.jpeg'
 import plant2 from '../images/plant2.jpeg'
 import plant3 from '../images/plant3.jpeg'
@@ -10,14 +10,14 @@ import { actionSetResults } from '../redux/actions/results'
 
 export default function MyGarden() {
     const dispatch = useDispatch();
-    const results = useSelector((state) => state.results)
+    // const results = useSelector((state) => state.results)
 
     useEffect(() => {
-        fetch('api/v1/plants/mygarden')
+        fetch('/api/v1/plants/mygarden')
         .then(res => res.json())
         .then(data => {
             dispatch(actionSetResults(data))
-            console.log(data)
+            // console.log(data)
         })
     }, [dispatch])
 

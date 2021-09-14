@@ -1,19 +1,18 @@
-import React, { useEffect } from 'react'
-import { Container, Row } from 'react-bootstrap'
+import React, { useEffect, useState } from 'react'
+import { Container, Row} from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
+
+import AddPlant from '../components/AddPlant'
+import Plant from '../components/Plant'
 import NewPlant from '../components/NewPlant'
-// import Plant from '../components/Plant'
+
+
 import plant1 from '../images/plant1.jpeg'
 import plant2 from '../images/plant2.jpeg'
 import plant3 from '../images/plant3.jpeg'
 import { actionSetResults } from '../redux/actions/results'
 
 export default function MyGarden() {
-
-    // const [show, setShow] = useState(false);
-
-    // const handleClose = () => setShow(false);
-    // const handleShow = () => setShow(true);
 
     const dispatch = useDispatch();
     const results = useSelector((state) => state.results)
@@ -40,15 +39,17 @@ export default function MyGarden() {
                     <img className="plant-pic" src={plant3} alt="plant stems" />
                 </div>
             </div>
-            {/* <Container>
-                <Row sm={2} md={4} lg={6}>
-                    {results.length ? results.map((result) => {
-                        return <Plant key={result.id} data={result} />
-                    }) : ('')}
-                </Row>
 
-            </Container> */}
-            <NewPlant />
+            {/* PLANTS */}
+            <Container className="text-center">
+                <Row sm={2} md={4} lg={6} className="justify-content-center">
+                    <AddPlant />
+                    {results.length ? (results.map((result) => {
+                      return <Plant key={result.id} data={result} />
+                    })) : ('')}
+                    
+                </Row>
+            </Container>
         </div>
     )
 }

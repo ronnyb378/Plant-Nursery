@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Row} from 'react-bootstrap'
+import { Container, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 
 import AddPlant from '../components/AddPlant'
@@ -47,9 +47,9 @@ export default function MyGarden() {
                 <Row sm={2} md={4} lg={6} className="justify-content-center">
                     <AddPlant />
                     {results.length ? (results.map((result) => {
-                      return <Plant key={result.id} data={result} />
+                        return <Plant key={result.id} data={result} />
                     })) : ('')}
-                    
+
                 </Row>
             </Container>
         </div>

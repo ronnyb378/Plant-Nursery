@@ -32,11 +32,22 @@ app.use(
       })
 );
 app.use(express.static(path.join(__dirname, 'public')));
+const { body, validationResult } = require('express-validator')
 
 app.use('/', indexRouter);
 app.use('/api/v1/users', usersRouter);
 app.use('/api/v1/plants', 
-// checkAuth, 
+// checkAuth,
+[
+  body('name')
+  .notEmpty()
+  .withMessage('Field is required')
+  .isLength({max:20})
+  .withMessage('20 Characters only')
+  .trim()
+  .escape(),
+  body('healthrating')
+],
 plantsRouter);
 
 

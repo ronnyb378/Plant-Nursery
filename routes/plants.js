@@ -1,5 +1,4 @@
 const express = require('express');
-
 const router = express.Router();
 const db = require('../models')
 
@@ -21,7 +20,7 @@ router.get('/mygarden', async function(req, res, next) {
 
 // POST a new plant
 router.post('/newplant', async (req, res) => {
-    console.log(req.body)
+    // console.log(req.body)
     const user = await db.User.findByPk(req.session.user.id)
     try {
         const plant = await user.createPlant({

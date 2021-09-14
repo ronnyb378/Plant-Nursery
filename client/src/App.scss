@@ -81,6 +81,9 @@ h2 {
 .plantCards {
     // background-color: black;
     border-color: transparent;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
     .card-img-top {
         // border-radius: 50%;
         border-color: yellow;
@@ -91,3 +94,9 @@ h2 {
 .plantCards:hover {
     transform: scale(1.03); 
 }
+
+// .card-body {
+//     display: flex !important;
+//     flex-direction: column !important;
+//     justify-content: space-between !important;
+// }

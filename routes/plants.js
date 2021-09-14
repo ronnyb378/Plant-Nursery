@@ -12,7 +12,7 @@ router.get('/mygarden', async function(req, res, next) {
         }
     }).then(plant => {
         if (plant.length < 1) {
-            res.json("No plants saved for this user!")
+            res.json([])
         } else {
             res.json(plant)
         }       

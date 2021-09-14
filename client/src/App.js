@@ -28,11 +28,12 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <NavBar />
+        {/* <NavBar /> */}
         <Container className="pt-4 pb-4">
           <Switch>
             <Route exact path="/login">
-              <Login />
+              <NavBar NavBarToggle={false} />
+              <Login  />
             </Route>
             <Route path="/signup">
               <SignUp />
@@ -41,7 +42,7 @@ function App() {
               <Profile />
             </Route>
             <Route path="/mygarden">
-              <MyGarden />
+              <MyGarden NavBarToggle={true} />
             </Route>
             <Route path="/:user/:plantId">
               <Plant />

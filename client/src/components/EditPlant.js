@@ -10,7 +10,7 @@ export default function EditPlant(props) {
 
     const results = useSelector((state) => state.results)
     const selectedPlant = results.find(function(currentPlant) {
-        return currentPlant.id == props.data.id
+        return currentPlant.id === props.data.id
     })
 
     const [name, setName] = useState(selectedPlant.name)
@@ -52,13 +52,13 @@ export default function EditPlant(props) {
         })
         .then(res => {
             const doneEdit = res.status === 200
-            // setEdit(!doneEdit)
+            setEdit(!doneEdit)
             if (doneEdit) {
                 let updatedPlant = {...selectedPlant}
                 updatedPlant.name=name
             }
             setShow(false)
-            window.location.reload();
+            // window.location.reload();
         })
         .catch(err => {
             setError(err)

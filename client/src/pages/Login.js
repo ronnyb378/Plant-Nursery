@@ -36,6 +36,28 @@ export default function Login() {
         })
     }
 
+    const handleGuestLogin = () => {
+        fetch('/api/v1/users/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: "guest",
+                password: "password"
+            })
+        })
+        .then(res=>res.json())
+        .then(data=> {
+            if (data.error) {
+                setError(data.error)
+            } else {
+                dispatch(actionLoggedIn(data.user))
+                history.push('/mygarden')
+            }
+        })
+    }
+
     return (
         <div>
             <Container className="pt-4">
@@ -58,8 +80,7 @@ export default function Login() {
                             <Button type="submit">Login</Button>
                             <p style={{textAlign: 'center'}}className="greySmall">-or-</p>
                         </Form>
-                        <Button as={Link} to="/garden">Sign in as a guest</Button>
-                        {/* <Link to="/signup">Sign Up</Link> */}
+                        <Button onClick={handleGuestLogin} className="guestButton">Sign in as a guest</Button>
                     </Col>
                 </Row>
             </Container>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card, Button, Col } from 'react-bootstrap'
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import plant from '../images/placeholderPlant.jpeg'
 import EditPlant from './EditPlant'

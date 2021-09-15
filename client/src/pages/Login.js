@@ -8,7 +8,7 @@ import { Form, Button, Container, Row, Col } from 'react-bootstrap'
 export default function Login() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const [error, setError] = useState('')
+    const [error, setError] = useState()
     const dispatch = useDispatch()
     const history = useHistory()
 

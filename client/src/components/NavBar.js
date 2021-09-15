@@ -83,6 +83,7 @@ export default function NavBar(props) {
                             <Nav.Link eventKey={3} as={Link} to="/profile">
                                 {user.username}
                             </Nav.Link>
+                            
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

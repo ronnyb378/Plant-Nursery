@@ -1,7 +1,7 @@
 const express = require('express');
-
 const router = express.Router();
-const db = require('../models')
+const db = require('../models');
+const validate = require('../validate');
 
 // GET all plants
 router.get('/mygarden', async function(req, res, next) {
@@ -20,8 +20,19 @@ router.get('/mygarden', async function(req, res, next) {
 })
 
 // POST a new plant
-router.post('/newplant', async (req, res) => {
-    console.log(req.body)
+const { body, validationResult } = require('express-validator');
+router.post('/newplant',[
+    body('name')
+    .notEmpty()
+    .withMessage('Field is required')
+    .isLength({max:20})
+    .withMessage('20 Characters only')
+    .trim()
+    .escape(),
+    body('healthrating'),
+    validate
+], async (req, res) => {
+    // console.log(req.body)
     const user = await db.User.findByPk(req.session.user.id)
     try {
         const plant = await user.createPlant({
@@ -52,6 +63,7 @@ router.patch('/mygarden/:plantId', async(req, res) => {
     const plantId = parseInt(req.params.plantId)
     const plant = await db.User.findByPk(plantId)
     console.log('running')
+    
     db.plant.update({
         name: req.body.name,
         healthrating: req.body.healthrating,

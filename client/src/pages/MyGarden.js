@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Row} from 'react-bootstrap'
+import { Container, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 
 import AddPlant from '../components/AddPlant'
@@ -48,7 +48,7 @@ export default function MyGarden() {
                     {results.length ? (results.map((result) => {
                         return <Plant key={result.id} data={result} />
                     })) : ('')}
-                    
+
                 </Row>
             </Container>
         </div>

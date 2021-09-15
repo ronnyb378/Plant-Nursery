@@ -114,6 +114,36 @@ router.get('/login/guest', (req, res) => {
     })
 })
 
+// Edit user information
+router.patch('/edit', async (req, res) => {
+  const user = await db.User.findByPk(req.session.user.id)
+  if (!user) {
+    res.status(401).json({
+      error: 'Not logged in'
+    })
+  }
+  let password = user.password
+  if (req.body.newpassword !== '' && req.body.oldpassword === user.password) {
+    password = bcrypt.hashSync(req.body.newpassword, 10)
+  }
+  if (user.password !== req.body.oldpassword && req.body.oldpassword !== '') {
+    res.json({error: 'incorrect current password'})
+  }
+  db.User.update({
+    username: req.body.username,
+    password: password    
+},{
+    where: {
+        id: user.id
+    }
+}).then(function () {
+    db.User.sync()
+    res.json({message: 'successfully user information changed'})
+})
+
+
+})
+
 // current user
 router.get('/current', async (req,res)=>{
   const user = await db.User.findByPk(req.session.user.id)

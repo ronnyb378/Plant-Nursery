@@ -48,8 +48,10 @@ router.post('/newplant', async (req, res) => {
 })
 
 // UPDATE a plant
-router.patch('mygarden/:plantId', (req, res) => {
-    
+router.patch('/mygarden/:plantId', async(req, res) => {
+    const plantId = parseInt(req.params.plantId)
+    const plant = await db.User.findByPk(plantId)
+    console.log('running')
     db.plant.update({
         name: req.body.name,
         healthrating: req.body.healthrating,
@@ -65,6 +67,7 @@ router.patch('mygarden/:plantId', (req, res) => {
         location: req.body.location
     })
     res.json(plant)
+    console.log('done patching')
 })
 
 // DELETE a plant

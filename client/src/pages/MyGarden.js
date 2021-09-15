@@ -16,14 +16,13 @@ export default function MyGarden() {
 
     const dispatch = useDispatch();
     const results = useSelector((state) => state.results)
-    const user = useSelector((state) => state.users)
-    console.log(user)
+
     useEffect(() => {
         fetch('api/v1/plants/mygarden')
             .then(res => res.json())
             .then(data => {
                 dispatch(actionSetResults(data))
-                console.log(data)
+                
             })
     }, [dispatch])
 
@@ -47,7 +46,7 @@ export default function MyGarden() {
                 <Row sm={2} md={4} lg={6} className="justify-content-center">
                     <AddPlant />
                     {results.length ? (results.map((result) => {
-                      return <Plant key={result.id} data={result} />
+                        return <Plant key={result.id} data={result} />
                     })) : ('')}
                     
                 </Row>

@@ -1,7 +1,9 @@
 import React from 'react'
 import { Card, Button, Col } from 'react-bootstrap'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import plant from '../images/placeholderPlant.jpeg'
+import EditPlant from './EditPlant'
 
 export default function Plant(props) {
     return (
@@ -13,7 +15,8 @@ export default function Plant(props) {
                     <Card.Text>
                         {props.data.location}
                     </Card.Text>
-                    <Button variant="primary">Edit</Button>
+                    {/* <Button variant="primary">Edit</Button> */}
+                    <EditPlant data={props.data}/>
                     <Button as={Link} to="/:user/:plantId"variant="primary">New Event</Button>
                 </Card.Body>
             </Card>

@@ -27,11 +27,10 @@ function App() {
   return (
     <div className="App">
       <Router>
-        {/* <NavBar /> */}
+        <NavBar />
         <Container className="pt-4 pb-4">
           <Switch>
             <Route exact path="/login">
-              <NavBar NavBarToggle={false} />
               <Login  />
             </Route>
             <Route path="/signup">

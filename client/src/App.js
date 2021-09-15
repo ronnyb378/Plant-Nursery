@@ -30,8 +30,7 @@ function App() {
         <NavBar />
         <Container className="pt-4 pb-4">
           <Switch>
-            <Route exact path="/login">
-              <NavBar NavBarToggle={false} />
+            <Route exact path="/">
               <Login  />
             </Route>
             <Route path="/signup">

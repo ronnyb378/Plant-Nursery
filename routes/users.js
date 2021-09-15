@@ -93,11 +93,13 @@ router.post('/login', async (req, res) => {
   // res.redirect('/api/v1/plants')
 })
 
-router.get('/logout', (req, res) => {
+router.get('/logout', (req, res, next) => {
   //tell express that the user logged out
   req.session.destroy()
   // send response to show it successful
   res.json({ message: 'successfully logged out' })
+  res.redirect('/')
+  next()
 })
 
 router.get('/login/guest', (req, res) => {
@@ -154,14 +156,6 @@ router.get('/current', async (req,res)=>{
   }
   const { password, ...userData } = user.dataValues
   res.json(userData)
-})
-
-router.get('/logout', (req, res) => {
-  // clear user information from session
-  req.session.user = null
-  res.json({
-    success: 'user logged out'
-  })
 })
 
 module.exports = router;

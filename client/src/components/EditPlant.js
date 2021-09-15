@@ -52,35 +52,17 @@ export default function EditPlant(props) {
         })
         .then(res => {
             const doneEdit = res.status === 200
-            setEdit(!doneEdit)
+            // setEdit(!doneEdit)
             if (doneEdit) {
                 let updatedPlant = {...selectedPlant}
                 updatedPlant.name=name
-                // dispatch(actionLoggedIn(updatedUser))
-                // setName('')
-                // setNickname('')
-                // setSpecies('')
-                // setSun('')
-                // setWaterfrequency('')
-                // setactivegrowthperiod('')
-                // setSoiltype('')
-                // setFertilizer('')
-                // setPlantDescription('')
-                // setDateAcquired('')
-                // sethealthrating('')
-                // setLocation('')
             }
+            setShow(false)
+            window.location.reload();
         })
         .catch(err => {
             setError(err)
         })
-        // .then((res=>res.json()))
-        // .then(data=>{
-        //     // if (data.error) {
-        //         // alert(data.error)
-        //     // }
-        //     setShow(false)
-        // })
     }
 
     return (

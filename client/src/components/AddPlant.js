@@ -26,7 +26,9 @@ export default function AddPlant() {
                         <Modal.Header closeButton>
                             <Modal.Title>New Plant</Modal.Title>
                         </Modal.Header>
-                        <Modal.Body><NewPlant /></Modal.Body>
+                        <Modal.Body>
+                            <NewPlant />
+                        </Modal.Body>
                         <Modal.Footer>
                             <Button variant="secondary" onClick={handleClose}>
                                 Close

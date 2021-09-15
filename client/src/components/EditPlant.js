@@ -10,7 +10,7 @@ export default function EditPlant(props) {
 
     const results = useSelector((state) => state.results)
     const selectedPlant = results.find(function(currentPlant) {
-        return currentPlant.id == props.data.id
+        return currentPlant.id === props.data.id
     })
 
     const [name, setName] = useState(selectedPlant.name)

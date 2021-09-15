@@ -1,7 +1,12 @@
 import React from 'react'
 import { Navbar, Container, Nav } from 'react-bootstrap'
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 export default function NavBar(props) {
+
+    const user = useSelector((state) => state.users.user)
+    
     function nBar(toggle) {((toggle === false)?
             (<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
@@ -35,6 +40,7 @@ export default function NavBar(props) {
                                 Log out
                             </Nav.Link>
                         </Nav>
+                        
                     </Navbar.Collapse>
                 </Container>
             </Navbar>)
@@ -73,6 +79,9 @@ export default function NavBar(props) {
                         <Nav>
                             <Nav.Link eventKey={2} href="/login">
                                 Log out
+                            </Nav.Link>
+                            <Nav.Link eventKey={3} as={Link} to="/profile">
+                                {user.username}
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>

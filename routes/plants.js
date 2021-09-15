@@ -29,7 +29,7 @@ router.post('/newplant',[
     .withMessage('20 Characters only')
     .trim()
     .escape(),
-    body('healthrating'),
+        body('healthrating'),
     validate
 ], async (req, res) => {
     // console.log(req.body)

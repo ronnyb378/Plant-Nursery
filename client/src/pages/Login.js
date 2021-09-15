@@ -1,16 +1,20 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router'
 import { actionLoggedIn } from '../redux/actions/user'
 import { Form, Button, Container, Row, Col } from 'react-bootstrap'
+import { actionSetError } from '../redux/actions/error'
+import PopUpAlert from '../components/PopUpAlert'
 
 export default function Login() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const [error, setError] = useState()
+    // const [error, setError] = useState()
     const dispatch = useDispatch()
     const history = useHistory()
+
+    const errorMessage = useSelector(state => state.errors)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -28,7 +32,8 @@ export default function Login() {
         .then(res=>res.json())
         .then(data=> {
             if (data.error) {
-                setError(data.error)
+                // setError(data.error)
+                dispatch(actionSetError(data.error))
             } else {
                 dispatch(actionLoggedIn(data.user))
                 history.push('/mygarden')
@@ -50,7 +55,7 @@ export default function Login() {
         .then(res=>res.json())
         .then(data=> {
             if (data.error) {
-                setError(data.error)
+                // setError(data.error)
             } else {
                 dispatch(actionLoggedIn(data.user))
                 history.push('/mygarden')
@@ -63,7 +68,7 @@ export default function Login() {
             <Container className="pt-4">
                 <Row className="align-items-center" xs={1} md={2}>
                     <Col>
-                        {error && (<div className="error">{error}</div>)}
+                        {/* {error && (<div className="error">{error}</div>)} */}
                         <h2 className="signup-heading">Log in<br />to your<br/>account</h2>
                         <p className="greySmall">Don't have an account? <Link to="/signup">Sign up</Link></p>
                     </Col>

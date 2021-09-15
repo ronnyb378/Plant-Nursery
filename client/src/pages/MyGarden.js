@@ -16,6 +16,9 @@ export default function MyGarden() {
 
     const dispatch = useDispatch();
     const results = useSelector((state) => state.results)
+    console.log(results.sort())
+    console.log(results.reverse())
+
 
     useEffect(() => {
         fetch('api/v1/plants/mygarden')

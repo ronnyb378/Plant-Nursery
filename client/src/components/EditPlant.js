@@ -8,19 +8,26 @@ export default function EditPlant(props) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const results = useSelector((state) => state.results)
+    const selectedPlant = results.find(function(currentPlant) {
+        return currentPlant.id == props.data.id
+    })
 
-    const [name, setName] = useState(props.data.name)
-    const [nickname, setNickname] = useState(props.data.nickname)
-    const [species, setSpecies] = useState(props.data.species)
-    const [sun, setSun] = useState(props.data.sun)
-    const [waterfrequency, setWaterfrequency] = useState(props.data.waterfrequency)
-    const [activegrowthperiod, setactivegrowthperiod] = useState(props.data.activegrowthperiod)
-    const [soiltype, setSoiltype] = useState(props.data.soiltype)
-    const [fertilizer, setFertilizer] = useState(props.data.fertilizer)
-    const [plantdescription, setPlantDescription] = useState(props.data.plantdescription)
-    const [dateacquired, setDateAcquired] = useState(props.data.dateacquired)
-    const [healthrating, sethealthrating] = useState(props.data.healthrating)
-    const [location, setLocation] = useState(props.data.location)
+    const [name, setName] = useState(selectedPlant.name)
+    const [nickname, setNickname] = useState(selectedPlant.nickname)
+    const [species, setSpecies] = useState(selectedPlant.species)
+    const [sun, setSun] = useState(selectedPlant.sun)
+    const [waterfrequency, setWaterfrequency] = useState(selectedPlant.waterfrequency)
+    const [activegrowthperiod, setactivegrowthperiod] = useState(selectedPlant.activegrowthperiod)
+    const [soiltype, setSoiltype] = useState(selectedPlant.soiltype)
+    const [fertilizer, setFertilizer] = useState(selectedPlant.fertilizer)
+    const [plantdescription, setPlantDescription] = useState(selectedPlant.plantdescription)
+    const [dateacquired, setDateAcquired] = useState(selectedPlant.dateacquired)
+    const [healthrating, sethealthrating] = useState(selectedPlant.healthrating)
+    const [location, setLocation] = useState(selectedPlant.location)
+
+    const [error, setError] = useState('')
+    const [edit, setEdit] = useState(false)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -43,6 +50,30 @@ export default function EditPlant(props) {
                 sun
             })
         })
+        .then(res => {
+            const doneEdit = res.status === 200
+            setEdit(!doneEdit)
+            if (doneEdit) {
+                let updatedPlant = {...selectedPlant}
+                updatedPlant.name=name
+                // dispatch(actionLoggedIn(updatedUser))
+                // setName('')
+                // setNickname('')
+                // setSpecies('')
+                // setSun('')
+                // setWaterfrequency('')
+                // setactivegrowthperiod('')
+                // setSoiltype('')
+                // setFertilizer('')
+                // setPlantDescription('')
+                // setDateAcquired('')
+                // sethealthrating('')
+                // setLocation('')
+            }
+        })
+        .catch(err => {
+            setError(err)
+        })
         // .then((res=>res.json()))
         // .then(data=>{
         //     // if (data.error) {
@@ -54,9 +85,9 @@ export default function EditPlant(props) {
 
     return (
         <div>
-            <Button variant="primary" onClick={handleShow}>
+            {!edit && <Button variant="primary" onClick={handleShow}>
                 Edit
-            </Button>
+            </Button>}
 
         <Modal show={show} onHide={handleClose} animation={false}>
             <Modal.Header closeButton>
@@ -65,7 +96,7 @@ export default function EditPlant(props) {
             <Modal.Body>
                 <Form onSubmit={handleSubmit}>
                     <Form.Label>Name</Form.Label>        
-                    <Form.Control value={name} onChange={e => setName(e.target.value)}/>
+                    <Form.Control  value={name} onChange={e => setName(e.target.value)}/>
                     <Form.Label>Nickname</Form.Label>        
                     <Form.Control value={nickname} onChange={e => setNickname(e.target.value)}/>
                     <Form.Label>healthrating (1-5)</Form.Label>        

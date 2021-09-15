@@ -30,13 +30,13 @@ function App() {
         <NavBar />
         <Container className="pt-4 pb-4">
           <Switch>
-            <Route exact path="/login">
+            <Route exact path="/">
               <Login  />
             </Route>
             <Route path="/signup">
               <SignUp />
             </Route>
-            <Route path="/profile/:user">
+            <Route path="/profile">
               <Profile />
             </Route>
             <Route path="/mygarden">

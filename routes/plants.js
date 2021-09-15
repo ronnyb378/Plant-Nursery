@@ -32,7 +32,11 @@ router.post('/newplant',[
     .withMessage('20 Characters only')
     .trim()
     .escape(),
-        body('healthrating'),
+        body('nickname')
+            .isLength({max:30})
+            .withMessage('30 Characters only')
+            .trim()
+            .escape(),
     validate
 ], async (req, res) => {
     // console.log(req.body)

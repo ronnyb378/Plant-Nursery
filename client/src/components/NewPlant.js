@@ -1,10 +1,11 @@
 import Button from '@restart/ui/esm/Button'
 import React, { useState } from 'react'
 import { Form } from 'react-bootstrap'
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 export default function NewPlant() {
-    // todo: list -> 
-    // name, healthratingrating, species, nickname, sun, waterfrequency, activeactivegrowthperiod, soiltype, fertilizer, plantdescription, dateacquired, location
     const [name, setName] = useState('')
     const [nickname, setNickname] = useState('')
     const [species, setSpecies] = useState('')
@@ -39,38 +40,50 @@ export default function NewPlant() {
                 sun
             })
         })
-        .then((res=>res.json()))
-        .then(data=>{
-            console.log(data)
-        })
-        console.log('its done')
-    }
+            .then((res => res.json()))
+            .then(data => {
+                console.log(data)
+            })
+        }
+        // console.log()
     return (
         <Form onSubmit={handleSubmit}>
-            <Form.Label>Name</Form.Label>        
-            <Form.Control value={name} onChange={e => setName(e.target.value)}/>
-            <Form.Label>Nickname</Form.Label>        
-            <Form.Control value={nickname} onChange={e => setNickname(e.target.value)}/>
-            <Form.Label>healthrating (1-5)</Form.Label>        
-            <Form.Control value={healthrating} onChange={e => sethealthrating(e.target.value)}/>
-            <Form.Label>Species</Form.Label>        
-            <Form.Control value={species} onChange={e => setSpecies(e.target.value)}/>
-            <Form.Label>How much sun?</Form.Label>        
-            <Form.Control value={sun} onChange={e => setSun(e.target.value)}/>
-            <Form.Label>Water Frequency?</Form.Label>        
-            <Form.Control value={waterfrequency} onChange={e => setWaterfrequency(e.target.value)}/>
-            <Form.Label>Active Growth Period</Form.Label>        
-            <Form.Control value={activegrowthperiod} onChange={e => setactivegrowthperiod(e.target.value)}/>
-            <Form.Label>Soil type</Form.Label>        
-            <Form.Control value={soiltype} onChange={e => setSoiltype(e.target.value)}/>
-            <Form.Label>Fertilizer</Form.Label>        
-            <Form.Control value={fertilizer} onChange={e => setFertilizer(e.target.value)}/>
-            <Form.Label>Plant Description</Form.Label>        
-            <Form.Control value={plantdescription} onChange={e => setPlantDescription(e.target.value)}/>
-            <Form.Label>Date Acquired</Form.Label>        
-            <Form.Control value={dateacquired} onChange={e => setDateAcquired(e.target.value)}/>
-            <Form.Label>location</Form.Label>        
-            <Form.Control value={location} onChange={e => setLocation(e.target.value)}/>
+            <Form.Label>Name</Form.Label>
+            <Form.Control value={name} onChange={e => setName(e.target.value)} />
+            <hr />
+            <Form.Label>Nickname</Form.Label>
+            <Form.Control value={nickname} onChange={e => setNickname(e.target.value)} />
+            <hr />
+            <Form.Label>Health</Form.Label>
+            <Form.Range value={healthrating} onChange={e => sethealthrating(e.target.value)} />
+            <hr />
+            <Form.Label>Species</Form.Label>
+            <Form.Control value={species} onChange={e => setSpecies(e.target.value)} />
+            <hr />
+            <Form.Label>How much sun?</Form.Label>
+            <Form.Range value={sun} onChange={e => setSun(e.target.value)} />
+            {/* <Form.Control value={sun} onChange={e => setSun(e.target.value)}/> */}
+            <hr />
+            <Form.Label>Water Frequency?</Form.Label>
+            <Form.Control value={waterfrequency} onChange={e => setWaterfrequency(e.target.value)} />
+            <hr />
+            <Form.Label>Active Growth Period</Form.Label>
+            <Form.Control value={activegrowthperiod} onChange={e => setactivegrowthperiod(e.target.value)} />
+            <hr />
+            <Form.Label>Soil type</Form.Label>
+            <Form.Control value={soiltype} onChange={e => setSoiltype(e.target.value)} />
+            <hr />
+            <Form.Label>Fertilizer</Form.Label>
+            <Form.Control value={fertilizer} onChange={e => setFertilizer(e.target.value)} />
+            <hr />
+            <Form.Label>Plant Description</Form.Label>
+            <Form.Control value={plantdescription} onChange={e => setPlantDescription(e.target.value)} />
+            <hr />
+            <Form.Label>Date Acquired</Form.Label>
+            <DatePicker value={dateacquired} selected={dateacquired} onChange={e => setDateAcquired(e)} />
+            <hr />
+            <Form.Label>location</Form.Label>
+            <Form.Control value={location} onChange={e => setLocation(e.target.value)} />
             <Button type="submit" >Add new plant</Button>
         </Form>
     )

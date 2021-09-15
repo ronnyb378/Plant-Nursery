@@ -15,6 +15,7 @@ export default function MyGarden() {
 
     const dispatch = useDispatch();
     const results = useSelector((state) => state.results)
+
     const orderedResults = results.sort((a, b) => {
         let aId = a.id;
         let bId = b.id;
@@ -36,6 +37,7 @@ export default function MyGarden() {
                 
             })
     }, [])
+
 
     return (
         <div>

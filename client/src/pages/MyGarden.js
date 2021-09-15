@@ -16,8 +16,16 @@ export default function MyGarden() {
 
     const dispatch = useDispatch();
     const results = useSelector((state) => state.results)
-    console.log(results.sort())
-    console.log(results.reverse())
+    const orderedResults = results.sort((a, b) => {
+        let aId = a.id;
+        let bId = b.id;
+        if(aId < bId) {
+            return -1;
+        }
+        if(aId > bId ) {
+            return 1
+        }
+    })
 
 
     useEffect(() => {
@@ -48,7 +56,7 @@ export default function MyGarden() {
             <Container className="text-center">
                 <Row sm={2} md={4} lg={6} className="justify-content-center">
                     <AddPlant />
-                    {results.length ? (results.map((result) => {
+                    {orderedResults.length ? (orderedResults.map((result) => {
                         return <Plant key={result.id} data={result} />
                     })) : ('')}
 

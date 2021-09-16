@@ -54,7 +54,8 @@ router.post('/newplant',[
             fertilizer: req.body.fertilizer,
             plantdescription: req.body.plantdescription,
             dateacquired: req.body.dateacquired,
-            location: req.body.location
+            location: req.body.location,
+            photo: req.body.photo
         })
         res.json(plant)
     } catch (e) {
@@ -83,7 +84,8 @@ router.patch('/mygarden/:plantId', async(req, res) => {
         fertilizer: req.body.fertilizer,
         plantdescription: req.body.plantdescription,
         dateacquired: req.body.dateacquired,
-        location: req.body.location
+        location: req.body.location,
+        photo: req.body.photo
     }, {
         where: {
             id: plant.id

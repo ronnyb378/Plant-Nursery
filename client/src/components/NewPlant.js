@@ -1,7 +1,8 @@
 import Button from '@restart/ui/esm/Button'
 import React, { useState } from 'react'
 import { Form } from 'react-bootstrap'
-import DatePicker from "react-datepicker";
+import DatePicker from "react-datepicker"
+import AddPhoto from './AddPhoto';
 
 
 import "react-datepicker/dist/react-datepicker.css";
@@ -49,6 +50,8 @@ export default function NewPlant() {
     // console.log(fertilizer)
     return (
         <Form onSubmit={handleSubmit}>
+            <AddPhoto />
+            <hr />
             <Form.Label>Name</Form.Label>
             <Form.Control value={name} onChange={e => setName(e.target.value)} />
             <hr />

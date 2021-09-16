@@ -96,10 +96,11 @@ router.post('/login', async (req, res) => {
 router.get('/logout', (req, res, next) => {
   //tell express that the user logged out
   req.session.destroy()
+  // req.sessions.user = null
   // send response to show it successful
   res.json({ message: 'successfully logged out' })
-  res.redirect('/')
-  next()
+  // res.redirect('/')
+  // next()
 })
 
 router.get('/login/guest', (req, res) => {

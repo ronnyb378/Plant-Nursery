@@ -2,11 +2,19 @@ import React from 'react'
 import { Navbar, Container, Nav } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 export default function NavBar(props) {
+    const history = useHistory()
     const handleLogOut = (e) => {
         e.preventDefault()
         console.log('clicked and prevented default')
+        fetch('/api/v1/users/logout')
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                history.push('/')
+            })
     }
 
     const user = useSelector((state) => state.users.user)

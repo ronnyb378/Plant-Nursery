@@ -54,6 +54,7 @@ export default function MyGarden() {
                 </div>
             </div>
 
+            <div className='display-container'>
             {/* PLANTS */}
             <Container className="text-center">
                 <Row sm={2} md={4} lg={6} className="justify-content-center">
@@ -63,6 +64,7 @@ export default function MyGarden() {
                     })) : ('')}
                 </Row>
             </Container>
+            </div>
         </div>
     )
 }

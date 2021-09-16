@@ -3,20 +3,21 @@ import React, { useState } from 'react'
 import { Form } from 'react-bootstrap'
 import DatePicker from "react-datepicker";
 
+
 import "react-datepicker/dist/react-datepicker.css";
 
 export default function NewPlant() {
     const [name, setName] = useState('')
     const [nickname, setNickname] = useState('')
     const [species, setSpecies] = useState('')
-    const [sun, setSun] = useState('')
+    const [sun, setSun] = useState(50)
     const [waterfrequency, setWaterfrequency] = useState('')
     const [activegrowthperiod, setactivegrowthperiod] = useState('')
     const [soiltype, setSoiltype] = useState('')
     const [fertilizer, setFertilizer] = useState('')
     const [plantdescription, setPlantDescription] = useState('')
     const [dateacquired, setDateAcquired] = useState('')
-    const [healthrating, sethealthrating] = useState('')
+    const [healthrating, sethealthrating] = useState(50)
     const [location, setLocation] = useState('')
 
     const handleSubmit = (e) => {
@@ -44,8 +45,8 @@ export default function NewPlant() {
             .then(data => {
                 console.log(data)
             })
-        }
-        // console.log()
+    }
+    // console.log(fertilizer)
     return (
         <Form onSubmit={handleSubmit}>
             <Form.Label>Name</Form.Label>
@@ -73,13 +74,17 @@ export default function NewPlant() {
             <Form.Label>Soil type</Form.Label>
             <Form.Control value={soiltype} onChange={e => setSoiltype(e.target.value)} />
             <hr />
-            <Form.Label>Fertilizer</Form.Label>
-            <Form.Control value={fertilizer} onChange={e => setFertilizer(e.target.value)} />
+            <Form.Label>Fertilizer?</Form.Label>
+            <Form.Check inline label="yes" name="fertilizer" type="radio" id="inline-radio-1" onChange={e => setFertilizer("yes")} />
+            <Form.Check inline label="no" name="fertilizer" type="radio" id="inline-radio-1" onChange={e => setFertilizer("no")} />
             <hr />
             <Form.Label>Plant Description</Form.Label>
             <Form.Control value={plantdescription} onChange={e => setPlantDescription(e.target.value)} />
             <hr />
             <Form.Label>Date Acquired</Form.Label>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-calendar" viewBox="0 0 16 16">
+                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+            </svg>
             <DatePicker value={dateacquired} selected={dateacquired} onChange={e => setDateAcquired(e)} />
             <hr />
             <Form.Label>location</Form.Label>

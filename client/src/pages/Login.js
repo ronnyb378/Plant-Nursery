@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router'
 import { actionLoggedIn } from '../redux/actions/user'
 import { Form, Button, Container, Row, Col } from 'react-bootstrap'
-import { actionSetError } from '../redux/actions/error'
+import { actionSetError, actionSetShow } from '../redux/actions/status'
 import PopUpAlert from '../components/PopUpAlert'
 
 export default function Login() {
@@ -14,7 +14,6 @@ export default function Login() {
     const dispatch = useDispatch()
     const history = useHistory()
 
-    const errorMessage = useSelector(state => state.errors)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -34,9 +33,11 @@ export default function Login() {
             if (data.error) {
                 // setError(data.error)
                 dispatch(actionSetError(data.error))
+                dispatch(actionSetShow(true))
             } else {
                 dispatch(actionLoggedIn(data.user))
                 history.push('/mygarden')
+                dispatch(actionSetShow(true))
             }
         })
     }

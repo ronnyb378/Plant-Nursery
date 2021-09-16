@@ -18,7 +18,7 @@ export default function AddPlant() {
                     <Card.Title></Card.Title>
                     <Card.Text>
                     </Card.Text>
-                    <Button variant="primary" onClick={handleShow}>
+                    <Button variant="primary" onClick={handleShow} className='newButton'> 
                         Create New Plant
                     </Button>
 

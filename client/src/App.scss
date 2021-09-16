@@ -99,3 +99,16 @@ h2 {
 .guestButton {
     margin-top: 0px;
 }
+
+.display-container {
+    .card-body {
+
+        justify-content: space-between;
+        .newButton {
+            margin-top: 39px;
+        }
+        .card-text {
+            height: 5vh;
+        }
+    }
+}

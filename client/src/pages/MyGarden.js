@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect} from 'react'
 import { Container, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 
 import AddPlant from '../components/AddPlant'
 import Plant from '../components/Plant'
-import NewPlant from '../components/NewPlant'
 
 
 import plant1 from '../images/plant1.jpeg'
@@ -16,6 +15,7 @@ export default function MyGarden() {
 
     const dispatch = useDispatch();
     const results = useSelector((state) => state.results)
+
     const orderedResults = results.sort((a, b) => {
         let aId = a.id;
         let bId = b.id;
@@ -23,8 +23,9 @@ export default function MyGarden() {
             return -1;
         }
         if(aId > bId ) {
-            return 1
+            return 1;
         }
+        return 0;
     })
 
 
@@ -35,7 +36,8 @@ export default function MyGarden() {
                 dispatch(actionSetResults(data))
                 
             })
-    }, [dispatch])
+    }, [])
+
 
     return (
         <div>
@@ -59,7 +61,6 @@ export default function MyGarden() {
                     {orderedResults.length ? (orderedResults.map((result) => {
                         return <Plant key={result.id} data={result} />
                     })) : ('')}
-
                 </Row>
             </Container>
         </div>

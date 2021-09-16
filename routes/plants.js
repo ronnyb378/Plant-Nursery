@@ -9,7 +9,10 @@ router.get('/mygarden', async function(req, res, next) {
     await db.Plant.findAll({
         where: {
             UserId: req.session.user.id
-        }
+        },
+        // order: [
+        //     ['createdAt', 'DESC']
+        // ]
     }).then(plant => {
         if (plant.length < 1) {
             res.json([])

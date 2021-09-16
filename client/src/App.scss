@@ -68,6 +68,7 @@ h2 {
 .greySmall {
     color: grey;
     font-family: $mainFont;
+    margin-bottom: 0px;
 }
 
 .navbar {
@@ -95,8 +96,6 @@ h2 {
     transform: scale(1.03); 
 }
 
-// .card-body {
-//     display: flex !important;
-//     flex-direction: column !important;
-//     justify-content: space-between !important;
-// }
+.guestButton {
+    margin-top: 0px;
+}

@@ -12,9 +12,8 @@ export function actionSetSuccess(text) {
     }
 }
 
-export function actionSetShow(value) {
+export function actionClearAlerts() {
     return {
-        type: 'SET_SHOW',
-        show: value
+        type: 'CLEAR_ALERTS'
     }
 }

@@ -12,11 +12,10 @@ import NavBar from './components/NavBar';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { actionLoggedIn } from './redux/actions/user';
-import PopUpAlert from './components/PopUpAlert';
+import Alerts from './components/Alerts';
 
 function App() {
 
-  const message = useSelector(state => state.status)
   
 
   const dispatch = useDispatch()
@@ -33,7 +32,7 @@ function App() {
     <div className="App">
       <Router>
         <NavBar />
-        {message.error ? <PopUpAlert type={"danger"} /> : <PopUpAlert type={"success"} />}
+        <Alerts />
         <Container className="pt-4 pb-4">
           <Switch>
             <Route exact path="/">

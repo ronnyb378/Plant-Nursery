@@ -1,25 +1,17 @@
 import React, { useState } from 'react'
 import { Alert } from 'react-bootstrap'
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { actionSetError, actionSetShow, actionSetSuccess } from '../redux/actions/status';
 
 export default function PopUpAlert(props) {
 
-    const show = useSelector(state => state.show)
-    const message = useSelector(state => state.status)
-    // const  [ show, setShow ] = useState(false);
-    const dispatch = useDispatch();
+    // when PopUpAlert component called, show already set to true
+    const  [ show, setShow ] = useState(true);
 
     if (show) {
         return (
             <Alert variant={props.type} onClose={() => {
-                dispatch(actionSetShow(false))
-                dispatch(actionSetError(''));
-                dispatch(actionSetSuccess(''))}} dismissible>
-                {message.error ? 
-                    <Alert.Heading>{message.error}</Alert.Heading>
-                : <Alert.Heading>{message.success}</Alert.Heading>}
+                // when alert dismissed, show set to false
+                setShow(false)}} dismissible>
+                {props.content}
             </Alert>
         )
     } else { return null }

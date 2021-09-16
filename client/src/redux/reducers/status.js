@@ -1,12 +1,11 @@
-export function status(state={show:false}, action) {
-
+export function status(state = {}, action) {
     switch (action.type) {
         case 'SET_ERROR':
             return action.text
         case 'SET_SUCCESS':
             return action.text
-        case 'SET_SHOW':
-            return action.value
+        case 'CLEAR_ALERTS':
+            return {}
         default:
             return state
     }

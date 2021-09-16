@@ -9,14 +9,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 import { Container } from 'react-bootstrap';
 import NavBar from './components/NavBar';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { actionLoggedIn } from './redux/actions/user';
-import PopUpAlert from './components/PopUpAlert';
+import Alerts from './components/Alerts';
 
 function App() {
 
-  const errorMessage = useSelector(state => state.errors)
+  
 
   const dispatch = useDispatch()
   useEffect(() => {
@@ -32,7 +32,7 @@ function App() {
     <div className="App">
       <Router>
         <NavBar />
-        {errorMessage && <PopUpAlert type={"danger"} />}
+        <Alerts />
         <Container className="pt-4 pb-4">
           <Switch>
             <Route exact path="/">

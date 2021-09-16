@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router'
 import { actionLoggedIn } from '../redux/actions/user'
 import { Form, Button, Container, Row, Col } from 'react-bootstrap'
-import { actionSetError } from '../redux/actions/error'
+import { actionClearAlerts, actionSetError, actionSetShow, actionSetSuccess } from '../redux/actions/status'
 import PopUpAlert from '../components/PopUpAlert'
 
 export default function Login() {
@@ -14,7 +14,7 @@ export default function Login() {
     const dispatch = useDispatch()
     const history = useHistory()
 
-    const errorMessage = useSelector(state => state.errors)
+    const message = useSelector(state => state.status)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -32,10 +32,12 @@ export default function Login() {
         .then(res=>res.json())
         .then(data=> {
             if (data.error) {
-                // setError(data.error)
-                dispatch(actionSetError(data.error))
+                dispatch(actionSetError(data))
             } else {
                 dispatch(actionLoggedIn(data.user))
+                // if successfully logged in after having errors on login page, 
+                // state.status is set to empty object
+                dispatch(actionClearAlerts())
                 history.push('/mygarden')
             }
         })
@@ -68,7 +70,6 @@ export default function Login() {
             <Container className="pt-4">
                 <Row className="align-items-center" xs={1} md={2}>
                     <Col>
-                        {/* {error && (<div className="error">{error}</div>)} */}
                         <h2 className="signup-heading">Log in<br />to your<br/>account</h2>
                         <p className="greySmall">Don't have an account? <Link to="/signup">Sign up</Link></p>
                     </Col>

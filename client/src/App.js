@@ -32,7 +32,7 @@ function App() {
     <div className="App">
       <Router>
         <NavBar />
-        {errorMessage && <PopUpAlert />}
+        {errorMessage && <PopUpAlert type={"danger"} />}
         <Container className="pt-4 pb-4">
           <Switch>
             <Route exact path="/">

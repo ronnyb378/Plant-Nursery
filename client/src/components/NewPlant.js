@@ -10,14 +10,14 @@ export default function NewPlant() {
     const [name, setName] = useState('')
     const [nickname, setNickname] = useState('')
     const [species, setSpecies] = useState('')
-    const [sun, setSun] = useState('')
+    const [sun, setSun] = useState(50)
     const [waterfrequency, setWaterfrequency] = useState('')
     const [activegrowthperiod, setactivegrowthperiod] = useState('')
     const [soiltype, setSoiltype] = useState('')
     const [fertilizer, setFertilizer] = useState('')
     const [plantdescription, setPlantDescription] = useState('')
     const [dateacquired, setDateAcquired] = useState('')
-    const [healthrating, sethealthrating] = useState('')
+    const [healthrating, sethealthrating] = useState(50)
     const [location, setLocation] = useState('')
 
     const handleSubmit = (e) => {

@@ -4,7 +4,7 @@ const db = require('../models');
 const validate = require('../validate');
 
 // GET all plants
-router.get('/mygarden', async function(req, res, next) {
+router.get('/mygarden', async function (req, res, next) {
     // console.log("**************SESSION*****************",req.session.user.id)
     await db.Plant.findAll({
         where: {
@@ -18,25 +18,25 @@ router.get('/mygarden', async function(req, res, next) {
             res.json([])
         } else {
             res.json(plant)
-        }       
+        }
     })
 })
 
 // POST a new plant
 const { body, validationResult } = require('express-validator');
-router.post('/newplant',[
+router.post('/newplant', [
     body('name')
-    .notEmpty()
-    .withMessage('Field is required')
-    .isLength({max:20})
-    .withMessage('20 Characters only')
-    .trim()
-    .escape(),
-        body('nickname')
-            .isLength({max:30})
-            .withMessage('30 Characters only')
-            .trim()
-            .escape(),
+        .notEmpty()
+        .withMessage('Field is required')
+        .isLength({ max: 20 })
+        .withMessage('20 Characters only')
+        .trim()
+        .escape(),
+    body('nickname')
+        .isLength({ max: 30 })
+        .withMessage('30 Characters only')
+        .trim()
+        .escape(),
     validate
 ], async (req, res) => {
     // console.log(req.body)
@@ -54,23 +54,23 @@ router.post('/newplant',[
             fertilizer: req.body.fertilizer,
             plantdescription: req.body.plantdescription,
             dateacquired: req.body.dateacquired,
-            location: req.body.location
+            location: req.body.location,
+            photo: req.body.photo
         })
         res.json(plant)
     } catch (e) {
-
-        res.status(400).json({ error: "Failed to create plant" })
+        // res.status(400).json({ error: "Failed to create plant" })
         console.error(e)
     }
 
 })
 
 // UPDATE a plant
-router.patch('/mygarden/:plantId', async(req, res) => {
+router.patch('/mygarden/:plantId', async (req, res) => {
     const plantId = parseInt(req.params.plantId)
     const plant = await db.Plant.findByPk(plantId)
-    
-    
+
+
     db.Plant.update({
         name: req.body.name,
         healthrating: req.body.healthrating,
@@ -83,25 +83,42 @@ router.patch('/mygarden/:plantId', async(req, res) => {
         fertilizer: req.body.fertilizer,
         plantdescription: req.body.plantdescription,
         dateacquired: req.body.dateacquired,
-        location: req.body.location
+        location: req.body.location,
+        photo: req.body.photo
     }, {
         where: {
             id: plant.id
         }
-    }).then(function() {
+    }).then(function () {
         db.Plant.sync()
-        res.json({ message: 'changes made'})
+        res.json({ message: 'changes made' })
     })
 })
 
 // DELETE a plant
 router.delete('/mygarden/:plantId', (req, res) => {
     const plantId = parseInt(req.params.plantId);
-    db.plants.destroy( {
+    db.plants.destroy({
         where: { plantId: plantId }
     })
-    .then(res.json({ message: `Plant with id of ${plantId} successfully deleted.` }),
-    res.redirect('/mygarden'))
+        .then(res.json({ message: `Plant with id of ${plantId} successfully deleted.` }),
+            res.redirect('/mygarden'))
+})
+
+router.get('/:plantId', async (req, res, next) => {
+    const plantId = parseInt(req.params.plantId)
+    db.Event.findAll({
+        where: {
+            plantId: plantId
+        }
+    }) 
+    .then(events => {
+        res.json(events)
+    })
+
+    // res.json({ plantId: plantId,
+    //     userId: userId
+    // })
 })
 
 module.exports = router;

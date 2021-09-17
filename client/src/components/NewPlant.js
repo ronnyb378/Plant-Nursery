@@ -1,7 +1,7 @@
-import Button from '@restart/ui/esm/Button'
 import React, { useState } from 'react'
-import { Form } from 'react-bootstrap'
-import DatePicker from "react-datepicker";
+import { Form, Button } from 'react-bootstrap'
+import DatePicker from "react-datepicker"
+import AddPhoto from './AddPhoto';
 
 
 import "react-datepicker/dist/react-datepicker.css";
@@ -49,6 +49,8 @@ export default function NewPlant() {
     // console.log(fertilizer)
     return (
         <Form onSubmit={handleSubmit}>
+            <AddPhoto />
+            <hr />
             <Form.Label>Name</Form.Label>
             <Form.Control value={name} onChange={e => setName(e.target.value)} />
             <hr />
@@ -66,7 +68,11 @@ export default function NewPlant() {
             {/* <Form.Control value={sun} onChange={e => setSun(e.target.value)}/> */}
             <hr />
             <Form.Label>Water Frequency?</Form.Label>
-            <Form.Control value={waterfrequency} onChange={e => setWaterfrequency(e.target.value)} />
+            {/* <Form.Control value={waterfrequency} onChange={e => setWaterfrequency(e.target.value)} /> */}
+            <br/>
+            <Form.Check inline label="1-2 Week" name="water" type="radio" id="inline-radio-2" onChange={e => setWaterfrequency("1-2 Week")} />
+            <Form.Check inline label="3-4 Week" name="water" type="radio" id="inline-radio-2" onChange={e => setWaterfrequency("3-4 Week")} />
+            <Form.Check inline label="5+ Week" name="water" type="radio" id="inline-radio-2" onChange={e => setWaterfrequency("5+ Week")} />
             <hr />
             <Form.Label>Active Growth Period</Form.Label>
             <Form.Control value={activegrowthperiod} onChange={e => setactivegrowthperiod(e.target.value)} />
@@ -75,6 +81,7 @@ export default function NewPlant() {
             <Form.Control value={soiltype} onChange={e => setSoiltype(e.target.value)} />
             <hr />
             <Form.Label>Fertilizer?</Form.Label>
+            <br />
             <Form.Check inline label="yes" name="fertilizer" type="radio" id="inline-radio-1" onChange={e => setFertilizer("yes")} />
             <Form.Check inline label="no" name="fertilizer" type="radio" id="inline-radio-1" onChange={e => setFertilizer("no")} />
             <hr />
@@ -82,6 +89,7 @@ export default function NewPlant() {
             <Form.Control value={plantdescription} onChange={e => setPlantDescription(e.target.value)} />
             <hr />
             <Form.Label>Date Acquired</Form.Label>
+            <br />
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-calendar" viewBox="0 0 16 16">
                 <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
             </svg>
@@ -89,7 +97,7 @@ export default function NewPlant() {
             <hr />
             <Form.Label>location</Form.Label>
             <Form.Control value={location} onChange={e => setLocation(e.target.value)} />
-            <Button type="submit" >Add new plant</Button>
+            <Button type="submit" variant="primary" className="submit-button">Add new plant</Button>
         </Form>
     )
 }

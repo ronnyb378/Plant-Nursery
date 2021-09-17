@@ -14,6 +14,7 @@ export default function NavBar(props) {
             .then(data => {
                 console.log(data)
                 history.push('/')
+                history.go(0)
             })
     }
 
@@ -26,7 +27,7 @@ export default function NavBar(props) {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="#features">Something</Nav.Link>
+                            <Nav.Link href="/mygarden">My Garden</Nav.Link>
                             <Nav.Link href="#pricing">Something2</Nav.Link>
                         </Nav>
                         <Nav>

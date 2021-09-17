@@ -9,6 +9,8 @@
     "postinstall": "cd client && npm install && npm run build"
   },
   "dependencies": {
+    "@fullcalendar/daygrid": "^5.9.0",
+    "@fullcalendar/react": "^5.9.0",
     "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.2",
     "cookie-parser": "~1.4.4",

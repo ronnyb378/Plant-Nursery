@@ -47,7 +47,8 @@ function App() {
             <Route path="/mygarden">
               <MyGarden NavBarToggle={true} />
             </Route>
-            <Route path="/:user/:plantId">
+            {/* changing path from :user/:plantId to just /:plantId */}
+            <Route path="/:plantId">
               <Plant />
             </Route>
             <Route path="/calendar">

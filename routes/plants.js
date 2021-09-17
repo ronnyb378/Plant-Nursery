@@ -53,7 +53,7 @@ router.post('/newplant',[
             soiltype: req.body.soiltype,
             fertilizer: req.body.fertilizer,
             plantdescription: req.body.plantdescription,
-            dateacquired: req.body.dateacquired,
+            dateacquired: req.body.dateacquired || null,
             location: req.body.location,
             photo: req.body.photo
         })

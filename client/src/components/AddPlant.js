@@ -30,10 +30,7 @@ export default function AddPlant() {
                             <NewPlant />
                         </Modal.Body>
                         <Modal.Footer>
-                            <Button variant="secondary" onClick={handleClose}>
-                                Close
-                            </Button>
-                            <Button variant="primary" onClick={handleClose}>
+                            <Button variant="primary" className="submit-button" onClick={handleClose}>
                                 Save Changes
                             </Button>
                         </Modal.Footer>

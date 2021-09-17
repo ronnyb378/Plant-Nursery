@@ -14,6 +14,7 @@ export default function NavBar(props) {
             .then(data => {
                 console.log(data)
                 history.push('/')
+                history.go(0)
             })
     }
 

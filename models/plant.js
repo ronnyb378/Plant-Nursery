@@ -27,7 +27,8 @@ module.exports = (sequelize, DataTypes) => {
     fertilizer: DataTypes.STRING,
     plantdescription: DataTypes.STRING,
     dateacquired: DataTypes.DATE,
-    location: DataTypes.STRING
+    location: DataTypes.STRING,
+    photo: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Plant',

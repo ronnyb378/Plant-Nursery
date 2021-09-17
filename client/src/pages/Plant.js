@@ -2,6 +2,7 @@ import React from 'react'
 import { Card, Dropdown, DropdownButton, FloatingLabel, Form, Button, Container, Row, Col, Image } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router'
+import Calendar from '../components/Calendar'
 import plant from '../images/placeholderPlant.jpeg'
 
 export default function Plant() {
@@ -78,6 +79,7 @@ export default function Plant() {
                     </Col>
                     <Col className="h-100">
                         {/* Consider putting calendar in this column */}
+                        <Calendar />
                     </Col>
                 </Row>
             </Container>

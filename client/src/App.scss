@@ -56,6 +56,17 @@ h2 {
     
 }
 
+.submit-button{
+    background-color: $blueGreen;
+    border-color: $blueGreen !important;
+    border: 0;
+    font-size: 1.0em;
+    padding: .75em;
+    width: 100%;
+    margin-top: 1em;
+    font-family: $mainFont;
+}
+
 .signup-heading {
     text-align: left;
 }

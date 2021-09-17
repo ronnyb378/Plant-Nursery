@@ -3,6 +3,7 @@ import { Container, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 
 import AddPlant from '../components/AddPlant'
+import Calendar from '../components/Calendar'
 import Plant from '../components/Plant'
 
 
@@ -36,7 +37,7 @@ export default function MyGarden() {
                 dispatch(actionSetResults(data))
                 
             })
-    }, [])
+    }, [dispatch])
 
 
     return (
@@ -53,6 +54,7 @@ export default function MyGarden() {
                     <img className="plant-pic" src={plant3} alt="plant stems" />
                 </div>
             </div>
+            <Calendar />
 
             <div className='display-container'>
             {/* PLANTS */}

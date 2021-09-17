@@ -27,7 +27,7 @@ export default function AddPlant() {
                             <Modal.Title>New Plant</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
-                            <NewPlant />
+                            <NewPlant hidden="hide"/>
                         </Modal.Body>
                         <Modal.Footer>
                             <Button variant="primary" className="submit-button" onClick={handleClose}>

@@ -1,6 +1,5 @@
-import Button from '@restart/ui/esm/Button'
 import React, { useState } from 'react'
-import { Form } from 'react-bootstrap'
+import { Form, Button } from 'react-bootstrap'
 import DatePicker from "react-datepicker"
 import AddPhoto from './AddPhoto';
 
@@ -71,9 +70,9 @@ export default function NewPlant() {
             <Form.Label>Water Frequency?</Form.Label>
             {/* <Form.Control value={waterfrequency} onChange={e => setWaterfrequency(e.target.value)} /> */}
             <br/>
-            <Form.Check inline label="1-2 Week" name="water" type="radio" id="inline-radio-1" onChange={e => setWaterfrequency("1-2 Week")} />
-            <Form.Check inline label="3-4 Week" name="water" type="radio" id="inline-radio-1" onChange={e => setWaterfrequency("3-4 Week")} />
-            <Form.Check inline label="5+ Week" name="water" type="radio" id="inline-radio-1" onChange={e => setWaterfrequency("5+ Week")} />
+            <Form.Check inline label="1-2 Week" name="water" type="radio" id="inline-radio-2" onChange={e => setWaterfrequency("1-2 Week")} />
+            <Form.Check inline label="3-4 Week" name="water" type="radio" id="inline-radio-2" onChange={e => setWaterfrequency("3-4 Week")} />
+            <Form.Check inline label="5+ Week" name="water" type="radio" id="inline-radio-2" onChange={e => setWaterfrequency("5+ Week")} />
             <hr />
             <Form.Label>Active Growth Period</Form.Label>
             <Form.Control value={activegrowthperiod} onChange={e => setactivegrowthperiod(e.target.value)} />

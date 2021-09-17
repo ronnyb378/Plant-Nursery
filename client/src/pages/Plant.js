@@ -24,8 +24,8 @@ export default function Plant() {
     return (
         <div>
             <Container className="pt-4">
-                <h2>Events</h2>
-                <Card >
+                <h2>Plant Profile</h2>
+                <Card>
                     <Row className="justify-content-center" >
                         <Col xs={6} md={4} >
                             <Card.Img className="h-100" src={plant} />

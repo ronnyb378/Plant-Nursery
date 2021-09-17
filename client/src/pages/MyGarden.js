@@ -36,7 +36,7 @@ export default function MyGarden() {
                 dispatch(actionSetResults(data))
                 
             })
-    }, [])
+    }, [dispatch])
 
 
     return (

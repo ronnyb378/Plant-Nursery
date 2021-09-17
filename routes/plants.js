@@ -59,8 +59,7 @@ router.post('/newplant',[
         })
         res.json(plant)
     } catch (e) {
-
-        res.status(400).json({ error: "Failed to create plant" })
+        // res.status(400).json({ error: "Failed to create plant" })
         console.error(e)
     }
 

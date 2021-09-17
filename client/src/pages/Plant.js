@@ -1,4 +1,5 @@
 import React from 'react'
+import Calendar from '../components/Calendar'
 import { Dropdown, DropdownButton, FloatingLabel, Form, Button, Container, Row, Col, Image } from 'react-bootstrap'
 import plant from '../images/placeholderPlant.jpeg'
 
@@ -6,6 +7,7 @@ export default function Plant() {
     return (
         <div>
             <h2>plant</h2>
+            
             {/* <Container> */}
                 <Row style={{height: "300px"}} xs={1} sm={1} md={2} className="justify-content-center align-items-center">
                     <Col >
@@ -29,6 +31,7 @@ export default function Plant() {
                     </Col>
                     <Col className="h-100">
                         {/* Consider putting calendar in this column */}
+                        <Calendar />
                     </Col>
                 </Row>
             {/* </Container> */}

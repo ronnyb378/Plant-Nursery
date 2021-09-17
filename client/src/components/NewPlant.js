@@ -19,6 +19,7 @@ export default function NewPlant() {
     const [dateacquired, setDateAcquired] = useState('')
     const [healthrating, sethealthrating] = useState(50)
     const [location, setLocation] = useState('')
+    const [photo, setPhoto] = useState('')
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -38,7 +39,8 @@ export default function NewPlant() {
                 plantdescription,
                 dateacquired,
                 location,
-                sun
+                sun,
+                photo
             })
         })
             .then((res => res.json()))
@@ -49,7 +51,8 @@ export default function NewPlant() {
     // console.log(fertilizer)
     return (
         <Form onSubmit={handleSubmit}>
-            <AddPhoto />
+            <Form.Label>Photo</Form.Label>
+            <AddPhoto value={photo} onChange={url => setPhoto(url)}/>
             <hr />
             <Form.Label>Name</Form.Label>
             <Form.Control value={name} onChange={e => setName(e.target.value)} />

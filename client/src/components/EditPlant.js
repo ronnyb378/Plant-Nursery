@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Modal, Form } from 'react-bootstrap'
 import { useSelector } from 'react-redux';
+import AddPhoto from './AddPhoto'
 
 export default function EditPlant(props) {
     const [show, setShow] = useState(false);
@@ -25,6 +26,7 @@ export default function EditPlant(props) {
     const [dateacquired, setDateAcquired] = useState(selectedPlant.dateacquired)
     const [healthrating, sethealthrating] = useState(selectedPlant.healthrating)
     const [location, setLocation] = useState(selectedPlant.location)
+    const [photo, setPhoto] = useState(selectedPlant.photo)
 
     const [error, setError] = useState('')
     const [edit, setEdit] = useState(false)
@@ -47,7 +49,8 @@ export default function EditPlant(props) {
                 plantdescription,
                 dateacquired,
                 location,
-                sun
+                sun,
+                photo
             })
         })
         .then(res => {
@@ -77,6 +80,8 @@ export default function EditPlant(props) {
             </Modal.Header>
             <Modal.Body>
                 <Form onSubmit={handleSubmit}>
+                    <Form.Label>Photo</Form.Label>
+                    <AddPhoto value={photo} onChange={url => setPhoto(url)}/>
                     <Form.Label>Name</Form.Label>        
                     <Form.Control  value={name} onChange={e => setName(e.target.value)}/>
                     <Form.Label>Nickname</Form.Label>        

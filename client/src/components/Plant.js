@@ -11,7 +11,7 @@ export default function Plant(props) {
     return (
         <Col style={{ width: '12rem' }}>
             <Card className="plantCards">
-                <Card.Img width="100%" variant="top" src={plant}/>
+                    <Card.Img width="100%" variant="top" src={props.data.photo || plant}/>
                 <Card.Body>
                     <Card.Title>{props.data.name}</Card.Title>
                     <Card.Text>

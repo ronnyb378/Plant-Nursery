@@ -38,7 +38,7 @@ export default function Profile() {
                 dispatch(actionLoggedIn(updatedUser))
                 setNewpassword('')
                 setOldpassword('')
-                dispatch(actionSetSuccess({success:'Updated Successfully'}))
+                dispatch(actionSetSuccess({success:'User information successfully changed'}))
                 
             }
         })

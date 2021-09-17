@@ -6,6 +6,8 @@ import plant from '../images/placeholderPlant.jpeg'
 import EditPlant from './EditPlant'
 
 export default function Plant(props) {
+    // console.log(props)
+    
     return (
         <Col style={{ width: '12rem' }}>
             <Card className="plantCards">

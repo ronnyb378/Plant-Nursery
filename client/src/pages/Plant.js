@@ -3,7 +3,8 @@ import Calendar from '../components/Calendar'
 import { Dropdown, DropdownButton, FloatingLabel, Form, Button, Container, Row, Col, Image } from 'react-bootstrap'
 import plant from '../images/placeholderPlant.jpeg'
 
-export default function Plant() {
+export default function Plant(props) {
+    console.log(props)
     return (
         <div>
             <h2>plant</h2>

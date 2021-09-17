@@ -5,7 +5,8 @@ import { useParams } from 'react-router'
 import Calendar from '../components/Calendar'
 import plant from '../images/placeholderPlant.jpeg'
 
-export default function Plant() {
+export default function Plant(props) {
+    console.log(props)
 
     // grabbing plant id from route
     const { plantId } = useParams()

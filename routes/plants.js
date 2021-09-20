@@ -22,6 +22,28 @@ router.get('/mygarden', async function (req, res, next) {
     })
 })
 
+//grab individual plant
+router.get('/plant/:plantId', async function (req, res, next) {
+    const plantPageId = parseInt(req.params.plantId)
+
+    // console.log("**************SESSION*****************",req.session.user.id)
+    await db.Plant.findByPk({
+        where: {
+            id: plantPageId
+        },
+        // order: [
+        //     ['createdAt', 'DESC']
+        // ]
+    }).then(plant => {ß
+        if (plant.length < 1) {
+            res.json([])
+        } else {
+            res.json(plant)
+        }
+    })
+})
+
+
 // POST a new plant
 const { body, validationResult } = require('express-validator');
 router.post('/newplant', [
@@ -127,7 +149,7 @@ router.get('/:plantId', async (req, res, next) => {
 // router.post('/events/:plantId', async function (req, res) {
 //     const plantID = parseInt(req.params.plantId)
 //     const  = await db.Plant.findByPk()
-// }
+// })
 
 //     const user = await db.User.findByPk(req.session.user.id)
 //     try {

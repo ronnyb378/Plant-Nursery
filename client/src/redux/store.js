@@ -12,6 +12,7 @@ const rootReducer = combineReducers({
 // SESSION NOTES: sessionStorage is cleared when page session ends
 // page session lasts as long as tab or browser is open, and survives over page reloads
 
+//sessionStorage data is tied to a server session, and only available when a page is requested from a server
 const saveToSessionStorage = (globalState) => {
     try {
         const serializedState = JSON.stringify(globalState);

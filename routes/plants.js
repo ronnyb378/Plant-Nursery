@@ -25,15 +25,14 @@ router.get('/mygarden', async function (req, res, next) {
 //grab individual plant
 router.get('/plant/:plantId', async function (req, res, next) {
     const plantPageId = parseInt(req.params.plantId)
+    // const plantPageId = req.params.plantId
 
     // console.log("**************SESSION*****************",req.session.user.id)
+    try {
     await db.Plant.findByPk({
         where: {
             id: plantPageId
         },
-        // order: [
-        //     ['createdAt', 'DESC']
-        // ]
     }).then(plant => {
         if (plant.length < 1) {
             res.json([])
@@ -41,6 +40,10 @@ router.get('/plant/:plantId', async function (req, res, next) {
             res.json(plant)
         }
     })
+} catch (e) {
+    // res.status(400).json({ error: "Failed to create plant" })
+    console.error(e)
+}
 })
 
 
@@ -133,8 +136,9 @@ router.get('/:plantId', async (req, res, next) => {
     // console.log(plantId)
     db.Event.findAll({
         where: {
-            plantId: plantId
-        }
+            PlantId: plantId
+        },
+        include: [db.Plant]
     }) 
     .then(events => {
         res.json(events)

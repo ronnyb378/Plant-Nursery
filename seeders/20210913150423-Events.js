@@ -13,28 +13,28 @@ module.exports = {
     */
     return queryInterface.bulkInsert("Events", [
       {
-        plantId: 1,
+        PlantId: 1,
         type: 'mixed',
         notes: 'water 3 times a week',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        plantId: 2,
+        PlantId: 2,
         type: 'mixed',
         notes: 'water 3 times a week',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        plantId: 3,
+        PlantId: 3,
         type: 'mixed',
         notes: 'water 3 times a week',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        plantId: 4,
+        PlantId: 4,
         type: 'mixed',
         notes: 'water 3 times a week',
         createdAt: new Date(),
@@ -42,7 +42,7 @@ module.exports = {
       }
       ,
       {
-        plantId: 5,
+        PlantId: 5,
         type: 'mixed',
         notes: 'water 3 times a week',
         createdAt: new Date(),
@@ -50,7 +50,7 @@ module.exports = {
       }
       ,
       {
-        plantId: 5,
+        PlantId: 5,
         type: 'mixed',
         notes: 'water 3 times a week',
         createdAt: new Date(),
@@ -58,7 +58,7 @@ module.exports = {
       }
       ,
       {
-        plantId: 6,
+        PlantId: 6,
         type: 'mixed',
         notes: 'water 3 times a week',
         createdAt: new Date(),
@@ -66,7 +66,7 @@ module.exports = {
       }
       ,
       {
-        plantId: 7,
+        PlantId: 7,
         type: 'mixed',
         notes: 'water 3 times a week',
         createdAt: new Date(),
@@ -74,7 +74,7 @@ module.exports = {
       }
       ,
       {
-        plantId: 8,
+        PlantId: 8,
         type: 'mixed',
         notes: 'water 3 times a week',
         createdAt: new Date(),

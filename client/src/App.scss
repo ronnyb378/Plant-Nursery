@@ -123,3 +123,19 @@ h2 {
         }
     }
 }
+
+h4 {
+    color: $blueGreen;
+    font-family: $mainFont;
+    font-weight: 900;
+    font-size: 2.0em;
+    text-align: center;
+}
+
+.calColumn {
+    max-height: 100%
+}
+
+// .plantDetails {
+    // border-style: solid;
+// }

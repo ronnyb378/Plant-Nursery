@@ -132,18 +132,17 @@ router.delete('/mygarden/:plantId', (req, res) => {
 
 router.get('/:plantId', async (req, res, next) => {
     const plantId = parseInt(req.params.plantId)
+    // console.log(req.params.plantId)
+    // console.log(plantId)
     db.Event.findAll({
         where: {
-            plantId: plantId
-        }
+            PlantId: plantId
+        },
+        include: [db.Plant]
     }) 
     .then(events => {
         res.json(events)
     })
-
-    // res.json({ plantId: plantId,
-    //     userId: userId
-    // })
 })
 
 

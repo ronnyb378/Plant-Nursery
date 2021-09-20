@@ -28,6 +28,7 @@ export default function MyGarden() {
         return 0;
     })
 
+    console.log(orderedResults)
 
     useEffect(() => {
         fetch('api/v1/plants/mygarden')

@@ -34,7 +34,6 @@ export default function MyGarden() {
             .then(res => res.json())
             .then(data => {
                 dispatch(actionSetResults(data))
-                
             })
     }, [dispatch])
 

@@ -19,7 +19,7 @@ export default function Plant(props) {
                     </Card.Text>
                     {/* <Button variant="primary">Edit</Button> */}
                     <EditPlant data={props.data}/>
-                    <Button as={Link} to="/:user/:plantId"variant="primary">New Event</Button>
+                    <Button as={Link} to={`/plants/${props.data.id}`} variant="primary">New Event</Button>
                 </Card.Body>
             </Card>
         </Col>

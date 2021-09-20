@@ -115,10 +115,6 @@ router.get('/:plantId', async (req, res, next) => {
     .then(events => {
         res.json(events)
     })
-
-    // res.json({ plantId: plantId,
-    //     userId: userId
-    // })
 })
 
 module.exports = router;

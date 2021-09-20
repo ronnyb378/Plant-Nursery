@@ -141,7 +141,7 @@ router.patch('/edit', async (req, res) => {
     }
 }).then(function () {
     db.User.sync()
-    res.json({message: 'successfully user information changed'})
+    res.json({success: 'User information successfully changed'})
 })
 
 

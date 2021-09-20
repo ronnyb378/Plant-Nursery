@@ -14,7 +14,8 @@ export default function Calendar({ plantId }) {
             .then(data=> {
                 // console.log(data)
                 data.forEach(event => {
-                    console.log(event)
+                    const createAt = event.createAt
+                    console.log(event, createAt)
                 });
 
             })

@@ -5,7 +5,7 @@ import { useParams } from 'react-router'
 import Calendar from '../components/Calendar'
 import plant from '../images/placeholderPlant.jpeg'
 
-export default function Plant(props) {
+export default function Plant() {
     // console.log(props)
 
     // grabbing plant id from route
@@ -16,11 +16,12 @@ export default function Plant(props) {
 
     // grabbing results array from redux
     const results = useSelector((state) => state.results)
-
+    console.log(results)
     // grabbing specific plant that was clicked on from results array
     const selectedPlant = results.find(function(currentPlant) {
         return currentPlant.id === stringPlantId
     })
+    console.log(selectedPlant)
 
     const [ type, setType ] = useState('');
     const [ text, setText ] = useState('');

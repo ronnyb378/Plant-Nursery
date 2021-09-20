@@ -123,11 +123,11 @@ router.patch('/mygarden/:plantId', async (req, res) => {
 // DELETE a plant
 router.delete('/mygarden/:plantId', (req, res) => {
     const plantId = parseInt(req.params.plantId);
-    db.plants.destroy({
-        where: { plantId: plantId }
+    db.Plant.destroy({
+        where: { id: plantId }
     })
-        .then(res.json({ message: `Plant with id of ${plantId} successfully deleted.` }),
-            res.redirect('/mygarden'))
+        .then(res.json({ message: `Plant with id of ${plantId} successfully deleted.` })
+            )
 })
 
 router.get('/:plantId', async (req, res, next) => {

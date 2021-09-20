@@ -121,4 +121,34 @@ router.get('/:plantId', async (req, res, next) => {
     // })
 })
 
+
+// POST new events for existing plants (on plant page)
+
+// router.post('/events/:plantId', async function (req, res) {
+//     const plantID = parseInt(req.params.plantId)
+//     const  = await db.Plant.findByPk()
+// }
+
+//     const user = await db.User.findByPk(req.session.user.id)
+//     try {
+//         const plant = await user.createPlant({
+//             name: req.body.name,
+//             healthrating: req.body.healthrating,
+//             species: req.body.species,
+//             nickname: req.body.nickname,
+//             sun: req.body.sun,
+//             waterfrequency: req.body.waterfrequency,
+//             activegrowthperiod: req.body.activegrowthperiod,
+//             soiltype: req.body.soiltype,
+//             fertilizer: req.body.fertilizer,
+//             plantdescription: req.body.plantdescription,
+//             dateacquired: req.body.dateacquired,
+//             location: req.body.location,
+//             photo: req.body.photo
+//         })
+//         res.json(plant)
+//     } catch (e) {
+//         // res.status(400).json({ error: "Failed to create plant" })
+//         console.error(e)
+//     }
 module.exports = router;

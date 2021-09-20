@@ -148,10 +148,20 @@ router.get('/:plantId', async (req, res, next) => {
 
 // POST new events for existing plants (on plant page)
 
-// router.post('/events/:plantId', async function (req, res) {
-//     const plantID = parseInt(req.params.plantId)
-//     const  = await db.Plant.findByPk()
-// })
+router.post('/events/:plantId', async function (req, res) {
+    const plantID = parseInt(req.params.plantId)
+    try {
+        const event = db.Event.create({
+            plantId: plantID,
+            type: req.body.type,
+            notes: req.body.text
+        })
+        console.log('********hello**********')
+        res.json(event)
+    } catch (e) {
+        console.log(e)
+    }
+})
 
 //     const user = await db.User.findByPk(req.session.user.id)
 //     try {

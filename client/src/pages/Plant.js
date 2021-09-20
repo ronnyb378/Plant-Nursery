@@ -29,7 +29,18 @@ export default function Plant() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
+        fetch(`api/v1/plants/events/${stringPlantId}`, {
+            method: 'POST',
+            headers: { "Content-Type": "application/json"},
+            body: JSON.stringify({
+                type,
+                text             
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+        })
     }
 
     return (

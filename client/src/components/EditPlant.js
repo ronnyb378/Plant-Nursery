@@ -68,6 +68,15 @@ export default function EditPlant(props) {
         })
     }
 
+    const handleDeletePlant = () => {
+        fetch(`api/v1/plants/mygarden/${props.data.id}`, {
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+        })
+    }
     return (
         <div>
             {!edit && <Button variant="primary" onClick={handleShow}>
@@ -76,7 +85,7 @@ export default function EditPlant(props) {
 
         <Modal show={show} onHide={handleClose} animation={false}>
             <Modal.Header closeButton>
-                <Modal.Title>Modal heading</Modal.Title>
+                <Modal.Title>Edit Plant</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form onSubmit={handleSubmit}>
@@ -109,9 +118,13 @@ export default function EditPlant(props) {
                     <Button variant="primary" type="submit">
                     Save Changes
                     </Button>
+                    <Button variant="primary" onClick={handleDeletePlant}>
+                        Delete Plant
+                    </Button>
                 </Form>
             </Modal.Body>
         </Modal>
     </div>
     )
-}
+
+    }

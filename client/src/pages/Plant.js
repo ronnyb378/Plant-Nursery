@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { Card, Dropdown, DropdownButton, FloatingLabel, Form, Button, Container, Row, Col, Image } from 'react-bootstrap'
+import { Card, Dropdown, DropdownButton, FloatingLabel, Form, Button, Container, Row, Col, Image, ListGroup } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router'
 import Calendar from '../components/Calendar'
+import Entry from '../components/Entry'
 import plant from '../images/placeholderPlant.jpeg'
 
 export default function Plant() {
@@ -26,6 +27,20 @@ export default function Plant() {
 
     const [ type, setType ] = useState('');
     const [ text, setText ] = useState('');
+    const [ entries, setEntries ] = useState([])
+
+    const orderedEvents = entries.sort((a, b) => {
+        let aId = a.id;
+        let bId = b.id;
+        if(aId > bId) {
+            return -1;
+        }
+        if(aId < bId ) {
+            return 1;
+        }
+        return 0;
+    })
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -40,8 +55,19 @@ export default function Plant() {
         .then(res => res.json())
         .then(data => {
             console.log(data)
+            // setEntries(data)
         })
     }
+
+    useEffect(() => {
+        fetch(`api/v1/plants/${stringPlantId}`)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            setEntries(data)
+        })
+    }, [])
+
 
     return (
         <div>
@@ -107,6 +133,11 @@ export default function Plant() {
                     </Col>
                 </Row>
                 <h4>Entries</h4>
+                <ListGroup>
+                    {entries && orderedEvents.map((entry) => {
+                        return <Entry key={entry.id} data={entry} />
+                    }) }
+                </ListGroup>
             </Container>
         </div>
     )

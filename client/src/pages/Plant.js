@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Card, Dropdown, DropdownButton, FloatingLabel, Form, Button, Container, Row, Col, Image } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router'
@@ -7,8 +7,6 @@ import plant from '../images/placeholderPlant.jpeg'
 
 export default function Plant(props) {
     // console.log(props)
-
-    const [plantObj, setPlant] = useState({})
 
     // grabbing plant id from route
     const { plantId } = useParams();
@@ -24,12 +22,6 @@ export default function Plant(props) {
         return currentPlant.id === stringPlantId
     })
 
-    fetch(`api/v1/plants/plant/${stringPlantId}`)
-        .then(res => res.json())
-        .then(data => {
-            setPlant(data)
-            
-        })
 
     const [ type, setType ] = useState('');
     const [ text, setText ] = useState('');
@@ -50,22 +42,22 @@ export default function Plant(props) {
                         </Col>
                         <Col xs={12} md={8}>
                             <Card.Body>
-                                <Card.Title>{plant.name}</Card.Title><hr />
+                                <Card.Title>{selectedPlant.name}</Card.Title><hr />
                                 <Card.Text>
                                 <Row className="plantDetails">
                                     <Col >
-                                        <b>Nickname:</b> {plantObj.nickname}<br />
-                                        <b>Description:</b> {plantObj.plantdescription} <br />
-                                        <b>Fertilizer:</b> {plantObj.fertilizer} <br />
-                                        <b>Health Rating:</b> {plantObj.healthrating}<br />
-                                        <b>Location:</b> {plantObj.location}
+                                        <b>Nickname:</b> {selectedPlant.nickname}<br />
+                                        <b>Description:</b> {selectedPlant.plantdescription} <br />
+                                        <b>Fertilizer:</b> {selectedPlant.fertilizer} <br />
+                                        <b>Health Rating:</b> {selectedPlant.healthrating}<br />
+                                        <b>Location:</b> {selectedPlant.location}
                                     </Col>
                                     <Col>
-                                        <b>Species: </b>{plantObj.species}<br />
-                                        <b>Sun: </b>{plantObj.sun}<br />
-                                        <b>Water Frequency: </b>{plantObj.waterfrequency}<br />
-                                        <b>Soil Type: </b>{plantObj.soiltype}<br />
-                                        <b>Active Growth Period: </b>{plantObj.activegrowthperiod}
+                                        <b>Species: </b>{selectedPlant.species}<br />
+                                        <b>Sun: </b>{selectedPlant.sun}<br />
+                                        <b>Water Frequency: </b>{selectedPlant.waterfrequency}<br />
+                                        <b>Soil Type: </b>{selectedPlant.soiltype}<br />
+                                        <b>Active Growth Period: </b>{selectedPlant.activegrowthperiod}
                                     </Col>
                                 </Row>
                                 </Card.Text>

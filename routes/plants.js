@@ -34,7 +34,7 @@ router.get('/plant/:plantId', async function (req, res, next) {
         // order: [
         //     ['createdAt', 'DESC']
         // ]
-    }).then(plant => {ß
+    }).then(plant => {
         if (plant.length < 1) {
             res.json([])
         } else {
@@ -129,10 +129,16 @@ router.delete('/mygarden/:plantId', (req, res) => {
 
 router.get('/:plantId', async (req, res, next) => {
     const plantId = parseInt(req.params.plantId)
+    console.log(req.params.plantId)
+    console.log(plantId)
     db.Event.findAll({
         where: {
             plantId: plantId
-        }
+        },
+        include: [{
+            model: db.Plant,
+            attributes: ['waterfrequency']
+        }]
     }) 
     .then(events => {
         res.json(events)

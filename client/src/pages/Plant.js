@@ -24,7 +24,7 @@ export default function Plant() {
     })
     // console.log(selectedPlant)
 
-
+    const [ title, setTitle ] = useState('Type')
     const [ type, setType ] = useState('');
     const [ text, setText ] = useState('');
     const [ entries, setEntries ] = useState([])
@@ -54,19 +54,21 @@ export default function Plant() {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
-            // setEntries(data)
+            fetchPlant(stringPlantId)
         })
     }
 
     useEffect(() => {
-        fetch(`api/v1/plants/${stringPlantId}`)
+        fetchPlant(stringPlantId)
+    }, [stringPlantId])
+
+    function fetchPlant(id) {
+        fetch(`api/v1/plants/${id}`)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             setEntries(data)
         })
-    }, [])
+    }
 
 
     return (
@@ -74,7 +76,7 @@ export default function Plant() {
             <Container className="pt-4">
                 <h2>Plant Profile</h2>
                 <Card>
-                    <Row className="justify-content-center" >
+                    <Row className="justify-content-center">
                         <Col xs={6} md={4} >
                             <Card.Img className="h-100" src={plant} />
                         </Col>
@@ -111,7 +113,9 @@ export default function Plant() {
                     <Col >
                         <h4>Add an Entry</h4>
                         <Form onSubmit={handleSubmit}>
-                            <DropdownButton onSelect={(e) => setType(e)} id="dropdown-item-button" title="Type">
+                            <DropdownButton justified onSelect={(e) => {
+                                setTitle(e);
+                                setType(e)}} id="dropdown-item-button" title={title}>
                                 <Dropdown.Item eventKey="Watered">Watered</Dropdown.Item>
                                 <Dropdown.Item eventKey="Potted">Potted</Dropdown.Item>
                                 <Dropdown.Item eventKey="Fertilized">Fertilized</Dropdown.Item>
@@ -133,7 +137,7 @@ export default function Plant() {
                     </Col>
                     <Col>
                         {/* Consider putting calendar in this column */}
-                        <Calendar className="calColumn" plantId={plantId}/>
+                        <Calendar className="calColumn" plantId={plantId} events={entries}/>
                     </Col>
                 </Row>
                 <h4>Entries</h4>

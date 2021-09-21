@@ -4,7 +4,6 @@ import SignUp from './pages/SignUp';
 import MyGarden from './pages/MyGarden';
 import Plant from './pages/Plant';
 import Profile from './pages/Profile';
-// import Calendar from './pages/Calendar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 import { Container } from 'react-bootstrap';
@@ -62,6 +61,7 @@ function App() {
             {/* <Route path="/calendar">
               <Calendar />
             </Route> */}
+
           </Switch>
         </Container>
       </Router>

@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router'
 import { actionLoggedIn } from '../redux/actions/user'
 import { Form, Button, Container, Row, Col } from 'react-bootstrap'
-import { actionClearAlerts, actionSetError, actionSetShow, actionSetSuccess } from '../redux/actions/status'
-import PopUpAlert from '../components/PopUpAlert'
+import { actionClearAlerts, actionSetError } from '../redux/actions/status'
 
 export default function Login() {
     const [username, setUsername] = useState('')
@@ -13,8 +12,6 @@ export default function Login() {
     // const [error, setError] = useState()
     const dispatch = useDispatch()
     const history = useHistory()
-
-    const message = useSelector(state => state.status)
 
     const handleSubmit = (e) => {
         e.preventDefault()

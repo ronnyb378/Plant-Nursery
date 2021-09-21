@@ -4,7 +4,6 @@ import SignUp from './pages/SignUp';
 import MyGarden from './pages/MyGarden';
 import Plant from './pages/Plant';
 import Profile from './pages/Profile';
-// import Calendar from './pages/Calendar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 import { Container } from 'react-bootstrap';
@@ -47,13 +46,9 @@ function App() {
             <Route path="/mygarden">
               <MyGarden NavBarToggle={true} />
             </Route>
-            {/* changing path from :user/:plantId to just /:plantId */}
             <Route path="/:plantId">
               <Plant />
             </Route>
-            {/* <Route path="/calendar">
-              <Calendar />
-            </Route> */}
           </Switch>
         </Container>
       </Router>

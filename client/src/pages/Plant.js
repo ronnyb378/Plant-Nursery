@@ -54,19 +54,21 @@ export default function Plant() {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
-            // setEntries(data)
+            fetchPlant(stringPlantId)
         })
     }
 
     useEffect(() => {
-        fetch(`api/v1/plants/${stringPlantId}`)
+        fetchPlant(stringPlantId)
+    }, [stringPlantId])
+
+    function fetchPlant(id) {
+        fetch(`api/v1/plants/${id}`)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             setEntries(data)
         })
-    }, [])
+    }
 
 
     return (
@@ -133,7 +135,7 @@ export default function Plant() {
                     </Col>
                     <Col>
                         {/* Consider putting calendar in this column */}
-                        <Calendar className="calColumn" plantId={plantId}/>
+                        <Calendar className="calColumn" plantId={plantId} events={entries}/>
                     </Col>
                 </Row>
                 <h4>Entries</h4>

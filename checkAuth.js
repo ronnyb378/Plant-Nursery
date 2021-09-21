@@ -6,7 +6,7 @@ function checkAuth(req, res, next) {
         next()
     } else {
         res.status(401).json({error: "not logged in"})
-        res.redirect('/login')
+        
     }
 }
 

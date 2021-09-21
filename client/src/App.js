@@ -11,8 +11,9 @@ import { Container } from 'react-bootstrap';
 import NavBar from './components/NavBar';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { actionLoggedIn } from './redux/actions/user';
+import { actionLoggedIn, actionLoggedOut } from './redux/actions/user';
 import Alerts from './components/Alerts';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
 
@@ -23,7 +24,12 @@ function App() {
     fetch('/api/v1/users/current')
       .then(res => res.json())
       .then(data => {
-        dispatch(actionLoggedIn(data))
+        if (data.error) {
+          dispatch(actionLoggedOut())
+        } else {
+          dispatch(actionLoggedIn(data))
+        }
+        
       })
     // todo: store user info in redux
   }, [dispatch])
@@ -41,16 +47,18 @@ function App() {
             <Route path="/signup">
               <SignUp />
             </Route>
-            <Route path="/profile">
-              <Profile />
-            </Route>
-            <Route path="/mygarden">
+            <ProtectedRoute path="/profile">
+            <Profile />
+          </ProtectedRoute>
+
+            <ProtectedRoute path="/mygarden">
               <MyGarden NavBarToggle={true} />
-            </Route>
+            </ProtectedRoute>
+
             {/* changing path from :user/:plantId to just /:plantId */}
-            <Route path="/:plantId">
+            <ProtectedRoute path="/:plantId">
               <Plant />
-            </Route>
+            </ProtectedRoute>
             {/* <Route path="/calendar">
               <Calendar />
             </Route> */}

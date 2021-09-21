@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Card, Dropdown, DropdownButton, FloatingLabel, Form, Button, Container, Row, Col, Image, ListGroup } from 'react-bootstrap'
+import { Card, Dropdown, DropdownButton, FloatingLabel, Form, Button, Container, Row, Col, ListGroup } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router'
 import Calendar from '../components/Calendar'
@@ -84,18 +84,22 @@ export default function Plant() {
                                 <Card.Text>
                                 <Row className="plantDetails">
                                     <Col >
-                                        <b>Nickname:</b> {selectedPlant.nickname}<br />
-                                        <b>Description:</b> {selectedPlant.plantdescription} <br />
-                                        <b>Fertilizer:</b> {selectedPlant.fertilizer} <br />
-                                        <b>Health Rating:</b> {selectedPlant.healthrating}<br />
-                                        <b>Location:</b> {selectedPlant.location}
+                                        <div>
+                                            <b>Nickname:</b> {selectedPlant.nickname}<br />
+                                            <b>Description:</b> {selectedPlant.plantdescription} <br />
+                                            <b>Fertilizer:</b> {selectedPlant.fertilizer} <br />
+                                            <b>Health Rating:</b> {selectedPlant.healthrating}<br />
+                                            <b>Location:</b> {selectedPlant.location}
+                                        </div>
                                     </Col>
                                     <Col>
-                                        <b>Species: </b>{selectedPlant.species}<br />
-                                        <b>Sun: </b>{selectedPlant.sun}<br />
-                                        <b>Water Frequency: </b>{selectedPlant.waterfrequency}<br />
-                                        <b>Soil Type: </b>{selectedPlant.soiltype}<br />
-                                        <b>Active Growth Period: </b>{selectedPlant.activegrowthperiod}
+                                        <div>
+                                            <b>Species: </b>{selectedPlant.species}<br />
+                                            <b>Sun: </b>{selectedPlant.sun}<br />
+                                            <b>Water Frequency: </b>{selectedPlant.waterfrequency}<br />
+                                            <b>Soil Type: </b>{selectedPlant.soiltype}<br />
+                                            <b>Active Growth Period: </b>{selectedPlant.activegrowthperiod}
+                                        </div>
                                     </Col>
                                 </Row>
                                 </Card.Text>

@@ -5,10 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import AddPlant from '../components/AddPlant'
 import Plant from '../components/Plant'
 
-
-import plant1 from '../images/plant1.jpeg'
-import plant2 from '../images/plant2.jpeg'
-import plant3 from '../images/plant3.jpeg'
+import tools from '../images/tools.jpg'
 import { actionSetResults } from '../redux/actions/results'
 
 export default function MyGarden() {
@@ -40,21 +37,12 @@ export default function MyGarden() {
 
     return (
         <div>
-            <h2>Welcome</h2>
+            <h2>My Garden</h2>
              <div className="plant-container">
                 <div>
-                    <img className="plant-pic" src={plant1} alt="white flower" />
+                    <img className="plant-photo" src={tools} alt="overhead view of numerous tiny potted plants" />
                 </div>
-                <div>
-                    <img className="plant-pic" src={plant2} alt="hanging plants" />
-                </div>
-                <div>
-                    <img className="plant-pic" src={plant3} alt="plant stems" />
-                </div>
-                <div className="bg"></div>
             </div>
-
-            {/* <div class="border">Welcome, </div> */}
 
             <div className='display-container pt-4'>
                 {/* PLANTS */}

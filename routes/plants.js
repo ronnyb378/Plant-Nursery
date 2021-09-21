@@ -122,9 +122,14 @@ router.patch('/mygarden/:plantId', async (req, res) => {
 // DELETE a plant
 router.delete('/mygarden/:plantId', (req, res) => {
     const plantId = parseInt(req.params.plantId);
+    Promise.all([
+    db.Event.destroy({
+        where: { PlantId: plantId }
+    }),
     db.Plant.destroy({
         where: { id: plantId }
     })
+    ])
         .then(res.json({ message: `Plant with id of ${plantId} successfully deleted.` })
             )
 })

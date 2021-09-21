@@ -5,7 +5,7 @@ import { actionLoggedIn } from '../redux/actions/user'
 import { actionSetSuccess } from '../redux/actions/status'
 
 export default function Profile() {
-    const user = useSelector((state) => state.users.user)
+    const user = useSelector((state) => state.user.user)
     const [error, setError] = useState('')
     const [username, setUsername] = useState(user.username)
     const [newpassword, setNewpassword] = useState('')

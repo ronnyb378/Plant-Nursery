@@ -45,8 +45,8 @@ export default function AddPhoto(props) {
             <input type="file" onChange={handleFileChange} />
           </div>
           {file && (
-            <button type="button" className="btn" onClick={handleImageUpload}>
-              Attach Photo
+            <button type="button" className="btn addPhotoButton" onClick={handleImageUpload}>
+              Upload Photo
             </button>
           )}
           {loading && (

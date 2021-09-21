@@ -78,7 +78,7 @@ export default function Plant() {
                 <Card>
                     <Row className="justify-content-center">
                         <Col xs={6} md={4} >
-                            <Card.Img className="h-100" src={selectedPlant.photo} />
+                            <Card.Img className="h-100" src={selectedPlant.photo ? selectedPlant.photo : plant} />
                         </Col>
                         <Col xs={12} md={8}>
                             <Card.Body>
@@ -113,7 +113,7 @@ export default function Plant() {
                     <Col >
                         <h4>Add an Entry</h4>
                         <Form onSubmit={handleSubmit}>
-                            <DropdownButton justified onSelect={(e) => {
+                            <DropdownButton onSelect={(e) => {
                                 setTitle(e);
                                 setType(e)}} id="dropdown-item-button" title={title}>
                                 <Dropdown.Item eventKey="Watered">Watered</Dropdown.Item>

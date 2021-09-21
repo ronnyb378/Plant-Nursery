@@ -24,10 +24,6 @@ export default function Entry(props) {
     }
 
     return (
-        // <ListGroup.Item variant={entryType}>
-        //     <i><b>{type}</b></i><br /> {notes}
-        //     {/* <p className="me-auto">test</p> */}
-        // </ListGroup.Item>
         <ListGroup.Item variant={entryType} className="d-flex align-items-center justify-content-between">
         <div><i><b>{type}</b></i><br />{notes}</div> <Badge >{ newdate }</Badge>
     </ListGroup.Item>

@@ -44,6 +44,12 @@ h2 {
     border-radius: 5px;
 }
 
+.plant-photo {
+    width: 100%;
+    opacity: 0.90;
+    border-radius: 5px;
+}
+
 .btn-primary {
     background-color: $blueGreen;
     border-color: $blueGreen !important;
@@ -137,6 +143,10 @@ h4 {
     max-height: 100%
 }
 
+// .plantCard {
+//     max-width: 80%;
+// }
+
 // .plantDetails {
     // border-style: solid;
 // }
@@ -195,4 +205,12 @@ h4 {
 .badge {
     background-color: transparent !important;
     color: grey !important;
+}
+
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus {
+    background-color: #467070;
+}
+
+.dropdown-toggle:active, .dropdown-toggle:focus, .btn:focus, .btn:active {
+    background-color: $blueGreen !important;
 }

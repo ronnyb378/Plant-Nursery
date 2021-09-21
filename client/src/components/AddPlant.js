@@ -6,7 +6,7 @@ import NewPlant from './NewPlant';
 export default function AddPlant() {
     const [show, setShow] = useState(false);
 
-    const handleClose = () => setShow(false);
+    const handleClose = (event) => setShow(false);
     const handleShow = () => setShow(true);
 
 
@@ -27,7 +27,7 @@ export default function AddPlant() {
                             <Modal.Title>New Plant</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
-                            <NewPlant hidden="hide"/>
+                            <NewPlant hidden="hide" handleClose={handleClose}/>
                         </Modal.Body>
                         <Modal.Footer>
                             <Button variant="primary" className="submit-button" onClick={handleClose}>

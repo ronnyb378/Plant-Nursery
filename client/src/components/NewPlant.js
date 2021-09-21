@@ -8,7 +8,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useDispatch, useSelector } from 'react-redux';
 import { actionSetResults } from '../redux/actions/results';
 
-export default function NewPlant() {
+export default function NewPlant(props) {
     const [name, setName] = useState('')
     const [nickname, setNickname] = useState('')
     const [species, setSpecies] = useState('')
@@ -54,6 +54,7 @@ export default function NewPlant() {
                 console.log(data)
                 tempArray.push(data)
                 dispatch(actionSetResults(tempArray))
+                props.handleClose(false)
             })
     }
     // console.log(fertilizer)

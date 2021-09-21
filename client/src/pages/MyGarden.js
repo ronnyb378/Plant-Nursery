@@ -1,5 +1,5 @@
 import React, { useEffect} from 'react'
-import { Container, Row } from 'react-bootstrap'
+import { Container, Row, useAccordionButton } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 
 import AddPlant from '../components/AddPlant'
@@ -42,7 +42,7 @@ export default function MyGarden() {
 
     return (
         <div>
-            <h2>Welcome, Planter Person</h2>
+            <h2>Welcome to My Garden</h2>
             <div className="plant-container">
                 <div>
                     <img className="plant-pic" src={plant1} alt="white flower" />

@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Plant.belongsTo(models.User)
+      Plant.hasMany(models.Event)
     }
   };
   Plant.init({

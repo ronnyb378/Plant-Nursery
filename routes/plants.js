@@ -25,22 +25,25 @@ router.get('/mygarden', async function (req, res, next) {
 //grab individual plant
 router.get('/plant/:plantId', async function (req, res, next) {
     const plantPageId = parseInt(req.params.plantId)
+    // const plantPageId = req.params.plantId
 
     // console.log("**************SESSION*****************",req.session.user.id)
+    try {
     await db.Plant.findByPk({
         where: {
             id: plantPageId
         },
-        // order: [
-        //     ['createdAt', 'DESC']
-        // ]
-    }).then(plant => {ß
+    }).then(plant => {
         if (plant.length < 1) {
             res.json([])
         } else {
             res.json(plant)
         }
     })
+} catch (e) {
+    // res.status(400).json({ error: "Failed to create plant" })
+    console.error(e)
+}
 })
 
 
@@ -129,48 +132,36 @@ router.delete('/mygarden/:plantId', (req, res) => {
 
 router.get('/:plantId', async (req, res, next) => {
     const plantId = parseInt(req.params.plantId)
+    // console.log(req.params.plantId)
+    // console.log(plantId)
     db.Event.findAll({
         where: {
-            plantId: plantId
-        }
+            PlantId: plantId
+        },
+        include: [db.Plant]
     }) 
     .then(events => {
         res.json(events)
     })
-
-    // res.json({ plantId: plantId,
-    //     userId: userId
-    // })
 })
 
 
+
 // POST new events for existing plants (on plant page)
+router.post('/events/:plantId', async function (req, res) {
+    const plantID = parseInt(req.params.plantId)
+    try {
+        const event = db.Event.create({
+            PlantId: plantID,
+            type: req.body.type,
+            notes: req.body.text
+        })
+        .then(event => {
+        res.json(event)
+        })
+    } catch (e) {
+        console.log(e)
+    }
+})
 
-// router.post('/events/:plantId', async function (req, res) {
-//     const plantID = parseInt(req.params.plantId)
-//     const  = await db.Plant.findByPk()
-// })
-
-//     const user = await db.User.findByPk(req.session.user.id)
-//     try {
-//         const plant = await user.createPlant({
-//             name: req.body.name,
-//             healthrating: req.body.healthrating,
-//             species: req.body.species,
-//             nickname: req.body.nickname,
-//             sun: req.body.sun,
-//             waterfrequency: req.body.waterfrequency,
-//             activegrowthperiod: req.body.activegrowthperiod,
-//             soiltype: req.body.soiltype,
-//             fertilizer: req.body.fertilizer,
-//             plantdescription: req.body.plantdescription,
-//             dateacquired: req.body.dateacquired,
-//             location: req.body.location,
-//             photo: req.body.photo
-//         })
-//         res.json(plant)
-//     } catch (e) {
-//         // res.status(400).json({ error: "Failed to create plant" })
-//         console.error(e)
-//     }
 module.exports = router;

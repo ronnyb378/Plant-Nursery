@@ -1,14 +1,13 @@
-import React, { useState } from 'react'
-import { Card, Dropdown, DropdownButton, FloatingLabel, Form, Button, Container, Row, Col, Image } from 'react-bootstrap'
+import React, { useEffect, useState } from 'react'
+import { Card, Dropdown, DropdownButton, FloatingLabel, Form, Button, Container, Row, Col, ListGroup } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router'
 import Calendar from '../components/Calendar'
+import Entry from '../components/Entry'
 import plant from '../images/placeholderPlant.jpeg'
 
-export default function Plant(props) {
+export default function Plant() {
     // console.log(props)
-
-    const [plantObj, setPlant] = useState({})
 
     // grabbing plant id from route
     const { plantId } = useParams();
@@ -18,26 +17,57 @@ export default function Plant(props) {
 
     // grabbing results array from redux
     const results = useSelector((state) => state.results)
-
+    // console.log(results)
     // grabbing specific plant that was clicked on from results array
     const selectedPlant = results.find(function(currentPlant) {
         return currentPlant.id === stringPlantId
     })
+    // console.log(selectedPlant)
 
-    fetch(`api/v1/plants/plant/${stringPlantId}`)
-        .then(res => res.json())
-        .then(data => {
-            setPlant(data)
-            
-        })
 
     const [ type, setType ] = useState('');
     const [ text, setText ] = useState('');
+    const [ entries, setEntries ] = useState([])
+
+    const orderedEvents = entries.sort((a, b) => {
+        let aId = a.id;
+        let bId = b.id;
+        if(aId > bId) {
+            return -1;
+        }
+        if(aId < bId ) {
+            return 1;
+        }
+        return 0;
+    })
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
+        fetch(`api/v1/plants/events/${stringPlantId}`, {
+            method: 'POST',
+            headers: { "Content-Type": "application/json"},
+            body: JSON.stringify({
+                type,
+                text             
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            // setEntries(data)
+        })
     }
+
+    useEffect(() => {
+        fetch(`api/v1/plants/${stringPlantId}`)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            setEntries(data)
+        })
+    }, [])
+
 
     return (
         <div>
@@ -50,22 +80,26 @@ export default function Plant(props) {
                         </Col>
                         <Col xs={12} md={8}>
                             <Card.Body>
-                                <Card.Title>{plant.name}</Card.Title><hr />
+                                <Card.Title>{selectedPlant.name}</Card.Title><hr />
                                 <Card.Text>
                                 <Row className="plantDetails">
                                     <Col >
-                                        <b>Nickname:</b> {plantObj.nickname}<br />
-                                        <b>Description:</b> {plantObj.plantdescription} <br />
-                                        <b>Fertilizer:</b> {plantObj.fertilizer} <br />
-                                        <b>Health Rating:</b> {plantObj.healthrating}<br />
-                                        <b>Location:</b> {plantObj.location}
+                                        <div>
+                                            <b>Nickname:</b> {selectedPlant.nickname}<br />
+                                            <b>Description:</b> {selectedPlant.plantdescription} <br />
+                                            <b>Fertilizer:</b> {selectedPlant.fertilizer} <br />
+                                            <b>Health Rating:</b> {selectedPlant.healthrating}<br />
+                                            <b>Location:</b> {selectedPlant.location}
+                                        </div>
                                     </Col>
                                     <Col>
-                                        <b>Species: </b>{plantObj.species}<br />
-                                        <b>Sun: </b>{plantObj.sun}<br />
-                                        <b>Water Frequency: </b>{plantObj.waterfrequency}<br />
-                                        <b>Soil Type: </b>{plantObj.soiltype}<br />
-                                        <b>Active Growth Period: </b>{plantObj.activegrowthperiod}
+                                        <div>
+                                            <b>Species: </b>{selectedPlant.species}<br />
+                                            <b>Sun: </b>{selectedPlant.sun}<br />
+                                            <b>Water Frequency: </b>{selectedPlant.waterfrequency}<br />
+                                            <b>Soil Type: </b>{selectedPlant.soiltype}<br />
+                                            <b>Active Growth Period: </b>{selectedPlant.activegrowthperiod}
+                                        </div>
                                     </Col>
                                 </Row>
                                 </Card.Text>
@@ -99,10 +133,15 @@ export default function Plant(props) {
                     </Col>
                     <Col>
                         {/* Consider putting calendar in this column */}
-                        <Calendar className="calColumn" />
+                        <Calendar className="calColumn" plantId={plantId}/>
                     </Col>
                 </Row>
                 <h4>Entries</h4>
+                <ListGroup>
+                    {entries && orderedEvents.map((entry) => {
+                        return <Entry key={entry.id} data={entry} />
+                    }) }
+                </ListGroup>
             </Container>
         </div>
     )

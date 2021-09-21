@@ -1,5 +1,5 @@
-import React, { useEffect} from 'react'
-import { Container, Row, useAccordionButton } from 'react-bootstrap'
+import React, { useEffect } from 'react'
+import { Container, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 
 import AddPlant from '../components/AddPlant'
@@ -19,31 +19,29 @@ export default function MyGarden() {
     const orderedResults = results.sort((a, b) => {
         let aId = a.id;
         let bId = b.id;
-        if(aId < bId) {
+        if (aId < bId) {
             return -1;
         }
-        if(aId > bId ) {
+        if (aId > bId) {
             return 1;
         }
         return 0;
     })
 
-    console.log(orderedResults)
 
     useEffect(() => {
         fetch('api/v1/plants/mygarden')
             .then(res => res.json())
             .then(data => {
                 dispatch(actionSetResults(data))
-                
             })
     }, [dispatch])
 
 
     return (
         <div>
-            <h2>Welcome to My Garden</h2>
-            <div className="plant-container">
+            <h2>Welcome</h2>
+             <div className="plant-container">
                 <div>
                     <img className="plant-pic" src={plant1} alt="white flower" />
                 </div>
@@ -53,18 +51,21 @@ export default function MyGarden() {
                 <div>
                     <img className="plant-pic" src={plant3} alt="plant stems" />
                 </div>
+                <div className="bg"></div>
             </div>
 
-            <div className='display-container'>
-            {/* PLANTS */}
-            <Container className="text-center">
-                <Row sm={2} md={4} lg={6} className="justify-content-center">
-                    <AddPlant />
-                    {orderedResults.length ? (orderedResults.map((result) => {
-                        return <Plant key={result.id} data={result} />
-                    })) : ('')}
-                </Row>
-            </Container>
+            {/* <div class="border">Welcome, </div> */}
+
+            <div className='display-container pt-4'>
+                {/* PLANTS */}
+                <Container className="text-center">
+                    <Row xs={6} sm={6} md={6} lg={6} className="justify-content-center">
+                        <AddPlant />
+                        {orderedResults.length ? (orderedResults.map((result) => {
+                            return <Plant key={result.id} data={result} />
+                        })) : ('')}
+                    </Row>
+                </Container>
             </div>
         </div>
     )

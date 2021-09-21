@@ -8,8 +8,12 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      plantId: {
-        type: Sequelize.INTEGER
+      PlantId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Plants',
+          key: 'id'
+        }
       },
       type: {
         type: Sequelize.STRING

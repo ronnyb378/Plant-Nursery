@@ -1,5 +1,5 @@
 import React from 'react'
-import { ListGroup } from 'react-bootstrap'
+import { ListGroup, Badge } from 'react-bootstrap'
 
 export default function Entry(props) {
     const { type, notes } = props.data
@@ -24,6 +24,12 @@ export default function Entry(props) {
     }
 
     return (
-        <ListGroup.Item variant={entryType}>{notes}</ListGroup.Item>
+        // <ListGroup.Item variant={entryType}>
+        //     <i><b>{type}</b></i><br /> {notes}
+        //     {/* <p className="me-auto">test</p> */}
+        // </ListGroup.Item>
+        <ListGroup.Item variant={entryType} className="d-flex align-items-center justify-content-between">
+        <div><i><b>{type}</b></i><br />{notes}</div> <Badge >{ createdAt }</Badge>
+    </ListGroup.Item>
     )
 }

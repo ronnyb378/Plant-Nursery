@@ -6,7 +6,6 @@ export default function Calendar({ events }) {
     let eventsArray = events.map((event) => {
         let createdAt = (event.createdAt).slice(0,10);
         let title = event.type
-        console.log(createdAt)
         return {title: `${title}`, date: `${createdAt}`}
     })
     return (

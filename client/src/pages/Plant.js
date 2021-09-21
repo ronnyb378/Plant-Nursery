@@ -76,7 +76,7 @@ export default function Plant() {
                 <Card>
                     <Row className="justify-content-center" >
                         <Col xs={6} md={4} >
-                            <Card.Img className="h-100" src={plant} />
+                            <Card.Img className="h-100" src={selectedPlant.photo} />
                         </Col>
                         <Col xs={12} md={8}>
                             <Card.Body>
@@ -107,7 +107,7 @@ export default function Plant() {
                         </Col>
                     </Row>
                 </Card>
-                <Row style={{ height: "auto"}}xs={1} sm={1} md={2} className="justify-content-center align-items-center pb-3">
+                <Row style={{ height: "auto"}}xs={1} sm={1} md={2} className="justify-content-center align-items-center pb-3 pt-4">
                     <Col >
                         <h4>Add an Entry</h4>
                         <Form onSubmit={handleSubmit}>

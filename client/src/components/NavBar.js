@@ -28,10 +28,9 @@ export default function NavBar(props) {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
                             <Nav.Link href="/mygarden">My Garden</Nav.Link>
-                            {/* <Nav.Link href="#pricing">Something2</Nav.Link> */}
                         </Nav>
                         <Nav>
-                        <Nav.Link href="/profile">Account</Nav.Link>
+                        <Nav.Link href="/profile">My Profile</Nav.Link>
                             <Nav.Link eventKey={2} href="/logout" onClick={handleLogOut}>
                                 Log out
                             </Nav.Link>

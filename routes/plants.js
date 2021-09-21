@@ -95,7 +95,6 @@ router.patch('/mygarden/:plantId', async (req, res) => {
     const plantId = parseInt(req.params.plantId)
     const plant = await db.Plant.findByPk(plantId)
 
-
     db.Plant.update({
         name: req.body.name,
         healthrating: req.body.healthrating,
@@ -115,7 +114,6 @@ router.patch('/mygarden/:plantId', async (req, res) => {
             id: plant.id
         }
     }).then(function () {
-    // }).then(plant => {
         db.Plant.sync()
         res.json({ message: 'changes made' })
     })

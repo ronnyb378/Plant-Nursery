@@ -5,6 +5,8 @@ import AddPhoto from './AddPhoto';
 
 
 import "react-datepicker/dist/react-datepicker.css";
+import { useDispatch, useSelector } from 'react-redux';
+import { actionSetResults } from '../redux/actions/results';
 
 export default function NewPlant() {
     const [name, setName] = useState('')
@@ -20,6 +22,9 @@ export default function NewPlant() {
     const [healthrating, sethealthrating] = useState(50)
     const [location, setLocation] = useState('')
     const [photo, setPhoto] = useState('')
+
+    const results = useSelector(state => state.results)
+    const dispatch = useDispatch()
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -45,7 +50,10 @@ export default function NewPlant() {
         })
             .then((res => res.json()))
             .then(data => {
+                let tempArray = [...results]
                 console.log(data)
+                tempArray.push(data)
+                dispatch(actionSetResults(tempArray))
             })
     }
     // console.log(fertilizer)

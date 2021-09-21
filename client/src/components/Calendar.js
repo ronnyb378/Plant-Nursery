@@ -22,23 +22,6 @@ export default function Calendar({ plantId }) {
             .then(res=>res.json())
             .then(data=> {
                 setDbEventsArray(data)
-                // console.log(data)
-                // data.forEach(event => {
-                //     const createdAt =(event.createdAt).slice(0,10)
-                //     const title = event.type
-                    // console.log(event)
-                    // console.log(createdAt)
-
-                    // const oneEvent = {title: `${title}`, date: `${createdAt}`}
-                    // console.log(oneEvent)
-                    // eventsArray.push(oneEvent)
-                    // console.log(eventsArray)
-                    // let copyArray = [...eventsArray]
-                    // copyArray.push(oneEvent)
-                    // console.log(copyArray)
-                    // setEventsArray(copyArray)
-                // });
-
             })
     }, [plantId])
 

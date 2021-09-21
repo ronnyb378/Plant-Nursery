@@ -152,7 +152,7 @@ router.post('/events/:plantId', async function (req, res) {
     const plantID = parseInt(req.params.plantId)
     try {
         const event = db.Event.create({
-            plantId: plantID,
+            PlantId: plantID,
             type: req.body.type,
             notes: req.body.text
         })

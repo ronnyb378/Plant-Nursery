@@ -2,7 +2,13 @@ import React from 'react'
 import { ListGroup } from 'react-bootstrap'
 
 export default function Entry(props) {
-    const { type, notes, createdAt } = props.data
+    const { type, notes } = props.data
+    let dateObj = new Date(props.data.createdAt)
+    let month = dateObj.getUTCMonth() + 1;
+    let day = dateObj.getUTCDate();
+    let year = dateObj.getUTCFullYear();
+    const newdate = month + "/" + day + "/" + year;
+    console.log(newdate)
 
     let entryType;
     if (type === 'Watered') {

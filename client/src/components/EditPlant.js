@@ -28,7 +28,6 @@ export default function EditPlant(props) {
     const [location, setLocation] = useState(selectedPlant.location)
     const [photo, setPhoto] = useState(selectedPlant.photo)
 
-    const [error, setError] = useState('')
     const [edit, setEdit] = useState(false)
 
     const handleSubmit = (e) => {
@@ -62,9 +61,6 @@ export default function EditPlant(props) {
             }
             setShow(false)
             // window.location.reload();
-        })
-        .catch(err => {
-            setError(err)
         })
     }
 

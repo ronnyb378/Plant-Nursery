@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Form, Button, Container, Col, Row } from 'react-bootstrap'
 import { actionLoggedIn } from '../redux/actions/user'
-import { actionClearAlerts, actionSetError, actionSetShow, actionSetSuccess } from '../redux/actions/status'
-import PopUpAlert from '../components/PopUpAlert'
+import { actionSetSuccess } from '../redux/actions/status'
 
 export default function Profile() {
     const user = useSelector((state) => state.users.user)
@@ -12,7 +11,6 @@ export default function Profile() {
     const [newpassword, setNewpassword] = useState('')
     const [oldpassword, setOldpassword] = useState('')
     const [edit, setEdit] = useState(false)
-    const message = useSelector(state => state.status)
     const dispatch = useDispatch()
 
     const handleSubmit = (e) => {

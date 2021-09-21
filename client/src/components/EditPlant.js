@@ -58,7 +58,8 @@ export default function EditPlant(props) {
             setEdit(!doneEdit)
             if (doneEdit) {
                 let updatedPlant = {...selectedPlant}
-                updatedPlant.name=name
+                updatedPlant.name = name
+                
             }
             setShow(false)
             // window.location.reload();

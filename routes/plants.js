@@ -115,6 +115,7 @@ router.patch('/mygarden/:plantId', async (req, res) => {
             id: plant.id
         }
     }).then(function () {
+    // }).then(plant => {
         db.Plant.sync()
         res.json({ message: 'changes made' })
     })

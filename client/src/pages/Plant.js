@@ -73,7 +73,7 @@ export default function Plant() {
         <div>
             <Container className="pt-4">
                 <h2>Plant Profile</h2>
-                <Card>
+                <Card className="plantCard">
                     <Row className="justify-content-center" >
                         <Col xs={6} md={4} >
                             <Card.Img className="h-100" src={selectedPlant.photo} />

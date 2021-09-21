@@ -4,7 +4,7 @@ import { results } from "./reducers/results";
 import { user } from "./reducers/user";
 
 const rootReducer = combineReducers({
-    users: user,
+    user: user,
     results: results,
     status: status
 })

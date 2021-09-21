@@ -18,7 +18,7 @@ export default function NavBar(props) {
             })
     }
 
-    const user = useSelector((state) => state.users.user)
+    const user = useSelector((state) => state.user.user)
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">

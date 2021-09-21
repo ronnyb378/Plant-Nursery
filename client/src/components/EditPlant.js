@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Modal, Form } from 'react-bootstrap'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { actionSetResults } from '../redux/actions/results';
 import AddPhoto from './AddPhoto'
 
 export default function EditPlant(props) {
@@ -13,6 +14,8 @@ export default function EditPlant(props) {
     const selectedPlant = results.find(function(currentPlant) {
         return currentPlant.id === props.data.id
     })
+
+    const dispatch = useDispatch()
 
     const [name, setName] = useState(selectedPlant.name)
     const [nickname, setNickname] = useState(selectedPlant.nickname)
@@ -57,10 +60,16 @@ export default function EditPlant(props) {
             setEdit(!doneEdit)
             if (doneEdit) {
                 let updatedPlant = {...selectedPlant}
-                updatedPlant.name=name
+                updatedPlant.name = name
+                
             }
             setShow(false)
             // window.location.reload();
+            fetch('api/v1/plants/mygarden')
+            .then(res => res.json())
+            .then(data => {
+                dispatch(actionSetResults(data))
+            })
         })
     }
 

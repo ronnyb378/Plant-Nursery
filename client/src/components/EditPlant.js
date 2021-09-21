@@ -86,7 +86,7 @@ export default function EditPlant(props) {
     }
     return (
         <div>
-            {!edit && <Button variant="primary" onClick={handleShow}>
+            {!edit && <Button onClick={handleShow}>
                 Edit
             </Button>}
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Form, Button, Container } from 'react-bootstrap'
+import { Form, Button, Container, Col, Row } from 'react-bootstrap'
 import { actionLoggedIn } from '../redux/actions/user'
 import { actionClearAlerts, actionSetError, actionSetShow, actionSetSuccess } from '../redux/actions/status'
 import PopUpAlert from '../components/PopUpAlert'
@@ -50,9 +50,11 @@ export default function Profile() {
 
     return (
         <div>
-            <h2>profile</h2>
+            <h2>Account</h2>
             <Container className="pt-4">
             {error && (<div className="error">{error}</div>)}
+            <Row className="align-items-center justify-content-center">
+            <Col  xs={12} md={8} lg={6}>
             <Form onSubmit={handleSubmit}>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label>Username</Form.Label>
@@ -70,6 +72,8 @@ export default function Profile() {
                            {!edit && <Button onClick={() => setEdit(true)}>Edit</Button>}
                             
                         </Form>
+                </Col>
+                </Row>
             </Container>
         </div>
     )

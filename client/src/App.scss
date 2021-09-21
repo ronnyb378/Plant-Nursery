@@ -196,3 +196,11 @@ h4 {
     background-color: transparent !important;
     color: grey !important;
 }
+
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus {
+    background-color: #467070;
+}
+
+.dropdown-toggle:active, .dropdown-toggle:focus, .btn:focus, .btn:active {
+    background-color: $blueGreen !important;
+}

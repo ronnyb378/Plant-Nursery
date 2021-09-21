@@ -29,11 +29,11 @@ export default function AddPlant() {
                         <Modal.Body>
                             <NewPlant hidden="hide" handleClose={handleClose}/>
                         </Modal.Body>
-                        <Modal.Footer>
-                            <Button variant="primary" className="submit-button" onClick={handleClose}>
+                        {/* <Modal.Footer> */}
+                            {/* <Button variant="primary" className="submit-button" onClick={handleClose}>
                                 Save Changes
-                            </Button>
-                        </Modal.Footer>
+                            </Button> */}
+                        {/* </Modal.Footer> */}
                     </Modal>
                 </Card.Body>
             </Card>

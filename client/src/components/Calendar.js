@@ -12,7 +12,7 @@ export default function Calendar({ plantId }) {
     const [ dbEventsArray, setDbEventsArray ] = useState([])
 
     let eventsArray = dbEventsArray.map((event) => {
-        let createdAt =(event.createdAt).slice(0,10);
+        let createdAt = (event.createdAt).slice(0,10);
         let title = event.type
         return {title: `${title}`, date: `${createdAt}`}
     })

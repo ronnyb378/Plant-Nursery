@@ -18,15 +18,18 @@ Cloudinary is used for cloud photo storage, and Bycrypt is used for hashing pass
 
 ## Overview with Screenshots
 The home page includes the login, and the ability to create a new account.
-
+![login screenshot](./client/src/images/login.png)
 Upon logging in, users are taken to the My Garden page which displays all of their plants and photos.
-
+<img src="./client/src/images/GardenDashboard.png">
 Users can add a new plant, or edit an existing plant. They can include a photo too. Plants can also be deleted.
-
-Each plant has an events page with an interactive calendar. Each time an event is submitted (like "watered" or "treated with neem oil") it gets added to the calendar.
-
+<img src="./client/src/images/editplant.png">
+Each plant has an events page with an interactive calendar. 
+<img src="./client/src/images/plantprofile.png">
+Each time an event is submitted (like "watered" or "treated with neem oil") it gets added to the calendar and a list at the bottom of the page.
+<img src="./client/src/images/plantevent.png">
 There is also a user profile page where users can change their name or password.
 
+---
 
 ## Running the app:
 
@@ -35,6 +38,8 @@ There is also a user profile page where users can change their name or password.
 3. `npm run dev` to start backend.
 4. cd into the client folder in a second terminal, then `npm start` 
 5. Create your own account to log in. Alternatively, sign in under the pre-configured 'guest' account by clicking the guest link.
+
+---
 
 ## Developers
 * Aya Alabedi | <a href="https://www.linkedin.com/in/aya-al-abedi-4992a6171/"> Linked-In </a>

@@ -4,6 +4,7 @@ import { Card, Button, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import plant from '../images/placeholderPlant.jpeg'
 import EditPlant from './EditPlant'
+import locationIcon from '../images/location-icon.png'
 
 export default function Plant(props) {
     // console.log(props)
@@ -14,8 +15,8 @@ export default function Plant(props) {
                     <Card.Img width="100%" variant="top" src={props.data.photo || plant}/>
                 <Card.Body>
                     <Card.Title>{props.data.name}</Card.Title>
-                    <Card.Text>
-                        {props.data.location}
+                    <Card.Text className="myGardenPlantText">
+                        <img className="trashIcon" src={locationIcon} />{props.data.location}
                     </Card.Text>
                     {/* <Button variant="primary">Edit</Button> */}
                     <EditPlant data={props.data}/>

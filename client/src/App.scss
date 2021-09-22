@@ -8,6 +8,7 @@ $mainFont: 'Roboto Mono', monospace;
 html, body {
     width: 100%;
     height: 100%;
+    overflow-x: hidden;
     background-color: $white;
 }
 
@@ -45,9 +46,39 @@ h2 {
 }
 
 .plant-photo {
-    width: 100%;
-    opacity: 0.90;
-    border-radius: 5px;
+    // width: 100%;
+    // opacity: 0.90;
+    // border-radius: 5px;
+
+width: 100vw;
+position: relative;
+left: 50%;
+right: 50%;
+margin-left: -50vw;
+margin-right: -50vw;
+opacity: .85;
+}
+
+.container {
+    position: relative;
+  }
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    color: $white;
+    font-family: $mainFont;
+    font-weight: 900;
+    font-size: 3.5em;
+    text-align: center;
+
+    border: double;
+    border-color: white;
+    border-width: 10px;
+    padding: 16px
 }
 
 .btn-primary {
@@ -90,6 +121,11 @@ h2 {
 
 .navbar {
     background: $blueGreen !important;
+
+    .navbar-brand {
+        font-family: $mainFont;
+        font-size: 1.1em;
+    }
 }
 
 // .card-img-top {
@@ -110,8 +146,9 @@ h2 {
     }
 }
 
+
 .plantCards:hover {
-    transform: scale(1.03); 
+    transform: scale(1.04); 
 }
 
 .guestButton {
@@ -124,12 +161,28 @@ h2 {
         justify-content: space-between;
         .newButton {
             margin-top: 39px;
+            // opacity: .6;
         }
         .card-text {
             height: 5vh;
+            // color: black;
         }
     }
 }
+
+.newPlant {
+    opacity: .6 !important;
+}
+
+.newPlant:hover {
+    opacity: 1 !important;
+}
+
+.newButton:hover {
+    opacity: 1 !important;
+}
+
+
 
 h4 {
     color: $blueGreen;
@@ -143,60 +196,6 @@ h4 {
     max-height: 100%
 }
 
-// .plantCard {
-//     max-width: 80%;
-// }
-
-// .plantDetails {
-    // border-style: solid;
-// }
-
-// :root {
-//     --gradient-color-1: rgba(242,143,59, 0.75);
-//     --gradient-color-2: rgba(255,213,194, 0.85);
-    
-// }
-
-// .bg {
-//     margin: 0;
-//     background: linear-gradient(45deg, var(--gradient-color-1) 0%, var(--gradient-color-2) 15%, var(--gradient-color-1) 55%, var(--gradient-color-2) 70%, var(--gradient-color-1) 100%);
-//     background-repeat: no-repeat;
-    // min-height: 100vh;
-//     height: 200px;
-//     width: 100vh;
-
-// }
-
-// .border {
-// 	font-size: 1.6rem;
-// 	display: grid;
-// 	place-items: center;
-// 	min-height: 200px;
-// 	border: 8px solid;
-// 	padding: 1rem;
-//     border-image: linear-gradient(turquoise, greenyellow) 30;
-// border-color: black;
-// border-style: solid;
-// border-width: 30px;
-
-// width: 400px;
-// height: 200px;
-// max-width: 100%;
-// margin: 1rem auto;
-// display: flex;
-// align-items: center;
-// justify-content: center;
-// font-size: 2rem;
-
-// }
-
-// .dropdown-item-button {
-//     width: 100% !important;
-// }
-
-// .dropdown-toggle {
-//     width: 100% !important;
-// }
 
 .dropdown-menu {
     width: 100% !important;
@@ -221,3 +220,54 @@ h4 {
     font-family: $mainFont;
     margin: 2px;
 }
+
+.nowrap {
+    white-space: nowrap;
+  }
+
+.avatar {
+    max-height: 25px;
+    max-width: 25px;
+}
+
+.deletePlant {
+    background-color: black;
+}
+
+.trashIcon {
+    max-height: 20px;
+    max-width: 20px;
+    padding-bottom: 1px;
+}
+
+.prior {
+    padding-top: 4em !important;
+}
+
+.card-title {
+    font-family: $mainFont;
+    font-weight: bold;
+    color: $burnt;
+}
+
+.myGardenPlantText{
+    color: #686868 !important;
+    font-family: arial;
+}
+
+.plantDetails {
+
+    div {
+        font-size: 1.1em;
+        font-family: serif;
+    }
+    b {
+        font-family: serif;
+        font-size: 1.1em;
+    }
+}
+
+// .h5 {
+//     font-size: 1.8em;
+// }
+

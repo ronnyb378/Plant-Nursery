@@ -39,7 +39,7 @@ export default function SignUp() {
 
     return (
         <div>
-            <Container className="pt-4">
+            <Container className="pt-4 prior">
                 <Row className="align-items-center" xs={1} md={2}>
                     <Col>
                         {/* {error && (<div className="error">{error}</div>)} */}

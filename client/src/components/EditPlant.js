@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { actionSetResults } from '../redux/actions/results';
 import AddPhoto from './AddPhoto'
 import DatePicker from "react-datepicker"
+import trash from '../images/trash-icon.png'
 
 export default function EditPlant(props) {
     // const date = dateacquired.slice(0,10)
@@ -153,8 +154,8 @@ export default function EditPlant(props) {
                         <Button variant="primary" type="submit">
                             Save Changes
                         </Button>
-                        <Button variant="primary" onClick={handleDeletePlant}>
-                            Delete Plant
+                        <Button className="deletePlant" onClick={handleDeletePlant}>
+                            <img className="trashIcon" src={trash} /> Delete Plant
                         </Button>
                     </Form>
                 </Modal.Body>

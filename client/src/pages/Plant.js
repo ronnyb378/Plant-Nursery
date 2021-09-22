@@ -75,7 +75,7 @@ export default function Plant() {
         <div>
             <Container className="pt-4">
                 <h2>Plant Profile</h2>
-                <Card>
+                <Card className="justify-content-center">
                     <Row className="justify-content-center">
                         <Col xs={6} md={4} >
                             <Card.Img className="h-100" src={selectedPlant.photo ? selectedPlant.photo : plant} />
@@ -85,7 +85,7 @@ export default function Plant() {
                                 <Card.Title>{selectedPlant.name}</Card.Title><hr />
                                 <Card.Text>
                                 <Row className="plantDetails">
-                                    <Col >
+                                    <Col>
                                         <div>
                                             <b>Nickname:</b> {selectedPlant.nickname}<br />
                                             <b>Description:</b> {selectedPlant.plantdescription} <br />

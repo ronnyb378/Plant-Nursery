@@ -38,7 +38,7 @@ function App() {
       <Router>
         <NavBar />
         <Alerts />
-        <Container className="pt-4 pb-4">
+        <Container className="pb-4">
           <Switch>
             <Route exact path="/">
               <Login  />

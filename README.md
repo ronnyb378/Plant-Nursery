@@ -1,6 +1,6 @@
 # Plant Nursery
 
-Link to project: http://PutHostedAppHere
+Link to project: https://plant-nursery-app.herokuapp.com/
 
 ---
 ## Plant Tracking App

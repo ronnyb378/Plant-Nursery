@@ -64,7 +64,7 @@ export default function Login() {
 
     return (
         <div>
-            <Container className="pt-4">
+            <Container className="pt-4 prior">
                 <Row className="align-items-center" xs={1} md={2}>
                     <Col>
                         <h2 className="signup-heading">Log in<br />to your<br/>account</h2>

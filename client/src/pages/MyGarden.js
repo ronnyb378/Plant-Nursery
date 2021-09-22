@@ -37,12 +37,15 @@ export default function MyGarden() {
 
     return (
         <div>
-            <h2>My Garden</h2>
-             <div className="plant-container">
-                <div>
+            {/* <h2>My Garden</h2> */}
+             {/* <div className="plant-container"> */}
+                {/* <div> */}
+                <div className="container">
                     <img className="plant-photo" src={tools} alt="overhead view of numerous tiny potted plants" />
+                    <div class="centered nowrap">My Garden</div>
                 </div>
-            </div>
+                {/* </div> */}
+            {/* </div> */}
 
             <div className='display-container pt-4'>
                 {/* PLANTS */}

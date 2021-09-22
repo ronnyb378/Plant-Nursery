@@ -82,6 +82,11 @@ export default function EditPlant(props) {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                fetch('api/v1/plants/mygarden')
+                .then(res => res.json())
+                .then(data => {
+                    dispatch(actionSetResults(data))
+                })
             })
     }
     return (

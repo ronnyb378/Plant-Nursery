@@ -30,10 +30,16 @@ export default function NavBar(props) {
                             <Nav.Link href="/mygarden">My Garden</Nav.Link>
                         </Nav>
                         <Nav>
-                        <Nav.Link href="/profile">My Profile</Nav.Link>
-                            <Nav.Link eventKey={2} href="/logout" onClick={handleLogOut}>
+                        {/* <Nav.Link href="/profile">My Profile</Nav.Link> */}
+                        {(user) ? 
+                            (<Nav.Link eventKey={2} href="/logout" onClick={handleLogOut}>
                                 Log out
+                            </Nav.Link>) : (
+                                <Nav.Link eventKey={2} href="/">
+                                Log in
                             </Nav.Link>
+                            )
+                        }
                             <Nav.Link eventKey={3} as={Link} to="/profile">
                                 {(user) ? user.username : ''}
                             </Nav.Link>

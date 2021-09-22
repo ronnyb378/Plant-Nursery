@@ -9,7 +9,7 @@ export default function Entry(props) {
     let year = dateObj.getUTCFullYear();
     const newdate = month + "/" + day + "/" + year;
     console.log(newdate)
-
+    
     let entryType;
     if (type === 'Watered') {
         entryType = 'info'
